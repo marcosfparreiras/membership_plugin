@@ -10,6 +10,9 @@ Author URI: http://hotmembers.com.br/
 Versi -->on: 0.0.0
 */
 
+// include_once ABSPATH . 'wp-content/plugins/hotmembers3/class-hotmembers3.php';
+// include_once dirname(__FILE__) . 'class-hotmembers3.php';
+
 include_once plugin_dir_path( __FILE__ ) . '/controllers/admin-menus-controller.php';
 add_action( 'admin_menu', array( 'Admin_Menus_Controller', 'create_menus') );
 
