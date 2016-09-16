@@ -12,6 +12,22 @@ class Membership_Area_Model {
     $this->offer = $offer;
   }
 
+  public static function with_object($obj) {
+    return new self(
+      $obj->id,
+      $obj->name,
+      $obj->prod,
+      $obj->offer
+    );
+  }
+
+  // function __construct($obj) {
+  //   $this->id = $obj->id;
+  //   $this->name = $obj->name;
+  //   $this->prod = $obj->prod;
+  //   $this->offer = $obj->offer;
+  // }
+
   public function get_id(){
     return $this->id;
   }

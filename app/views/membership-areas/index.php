@@ -9,27 +9,23 @@
 
 <?php
 Hotmembers3::include_models();
+Hotmembers3::include_membership_areas_controller();
 
-// $m = new Membership_Area_Model('name',123,'oiu', 9898);
-$m = new Membership_Area_Model(3,'name3',1223,'o34iu');
-// Membership_Area::add($m);
-// echo $m->get_name();
+$a = Membership_Areas_Controller::index();
+var_dump($a);
 
+foreach($a as $am){
+  echo "$am->id - $am->name - $am->prod - $am->offer<br>";
+}
 
-
-$ret =  Membership_Area::delete(3);
-// $ret->set_name('newname2');
-
-
-
-
-// if( $ret == null) {
-//   echo 'nulll';
-// }
-// else {
-//   echo $ret->get_name();
-// }
-
-
+// $obj = [
+//   'id' => 88,
+//   'name' => 'myname',
+//   'prod' => 'myprod',
+//   'offer' => 'myoffer'
+// ];
+// $obj = (object) $obj;
+// $a = Membership_Area_Model::with_object($obj);
+// var_dump($a);
 
 ?>
