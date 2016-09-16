@@ -28,8 +28,6 @@ class Membership_Area {
     $sql = "SELECT * FROM $table_name WHERE id = $id";
     return $wpdb->get_row($sql);
   }
-
-
 }
 
 
