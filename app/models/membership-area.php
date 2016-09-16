@@ -2,6 +2,11 @@
 class Membership_Area {
   const TABLE_NAME_SUFIX = 'membership_areas';
 
+  public static function table_name() {
+    global $wpdb;
+    return $wpdb->prefix . self::TABLE_NAME_SUFIX;
+  }
+
   public static function create_table() {
     $table_name = self::table_name();
     $sql = "CREATE TABLE $table_name (
@@ -15,9 +20,39 @@ class Membership_Area {
     dbDelta( $sql );
   }
 
-  public static function table_name() {
+  public static function add($membership_area) {
     global $wpdb;
-    return $wpdb->prefix . self::TABLE_NAME_SUFIX;
+    $table = self::table_name();
+    $data = array(
+      'name' => $membership_area->get_name(),
+      'prod' => $membership_area->get_prod(),
+      'offer' => $membership_area->get_offer()
+    );
+    $format = array(
+      '%s',
+      '%d',
+      '%s',
+    );
+    $wpdb->insert( $table, $data, $format );
+  }
+
+  public static function update($membership_area, $id) {
+    global $wpdb;
+    $table = self::table_name();
+    $data = array(
+      'name' => $membership_area->get_name(),
+      'prod' => $membership_area->get_prod(),
+      'offer' => $membership_area->get_offer()
+    );
+    $where = array(
+      'id' => $id
+    );
+    $format = array(
+      '%s',
+      '%d',
+      '%s',
+    );
+    $wpdb->update( $table, $data, $where, $format );
   }
 
   public static function find($id) {
@@ -38,21 +73,7 @@ class Membership_Area {
     }
   }
 
-  public static function add($membership_area) {
-    global $wpdb;
-    $table = self::table_name();
-    $data = array(
-      'name' => $membership_area->get_name(),
-      'prod' => $membership_area->get_prod(),
-      'offer' => $membership_area->get_offer()
-    );
-    $format = array(
-      '%s',
-      '%d',
-      '%s',
-    );
-    $wpdb->insert( $table, $data, $format );
-  }
+
 
   public static function test() {
     return 'kk';

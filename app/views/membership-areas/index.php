@@ -15,7 +15,15 @@ Hotmembers3::include_models();
 // Membership_Area::add($m);
 // echo $m->get_name();
 
+
+
 $ret =  Membership_Area::find(2);
+$ret->set_name('newname2');
+
+// Membership_Area::update($ret, $ret->get_id());
+
+
+
 if( $ret == null) {
   echo 'nulll';
 }
