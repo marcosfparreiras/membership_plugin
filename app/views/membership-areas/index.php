@@ -10,26 +10,25 @@
 <?php
 Hotmembers3::include_models();
 
-// $m = new Membership_Area_Model(1,'name',123,'oiu');
-// $m = new Membership_Area_Model(2,'name2',1223,'o34iu');
+// $m = new Membership_Area_Model('name',123,'oiu', 9898);
+$m = new Membership_Area_Model(3,'name3',1223,'o34iu');
 // Membership_Area::add($m);
 // echo $m->get_name();
 
 
 
-$ret =  Membership_Area::find(2);
-$ret->set_name('newname2');
-
-// Membership_Area::update($ret, $ret->get_id());
+$ret =  Membership_Area::delete(3);
+// $ret->set_name('newname2');
 
 
 
-if( $ret == null) {
-  echo 'nulll';
-}
-else {
-  echo $ret->get_name();
-}
+
+// if( $ret == null) {
+//   echo 'nulll';
+// }
+// else {
+//   echo $ret->get_name();
+// }
 
 
 

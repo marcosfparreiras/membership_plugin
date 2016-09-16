@@ -73,12 +73,17 @@ class Membership_Area {
     }
   }
 
-
-
-  public static function test() {
-    return 'kk';
+  public static function delete($id) {
+    global $wpdb;
+    $table = self::table_name();
+    $where = array(
+      'id' => $id
+    );
+    $format = array(
+      '%d',
+    );
+    $wpdb->delete( $table, $where, $format );
   }
 }
-
 
 ?>
