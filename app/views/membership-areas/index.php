@@ -8,5 +8,7 @@
 </html>
 
 <?php
+Hotmembers3::include_models();
+echo Membership_Area::test();
 
 ?>

@@ -8,18 +8,26 @@ class Hotmembers3 {
     $this->add_menus();
   }
 
+  // Add plugin menu pages
   public function add_menus() {
     include self::DIR_PATH . '/controllers/admin-menus-controller.php';
     add_action( 'admin_menu', array( 'Admin_Menus_Controller', 'create_menus') );
   }
 
+  // Method used on register_activation_hook
   public static function on_activate() {
     self::create_tables();
   }
 
+  // Create tables on database
   public static function create_tables() {
-    include self::DIR_PATH . '/models/membership-area.php';
+    self::include_models();
     Membership_Area::create_table();
+  }
+
+  public static function include_models() {
+    include self::DIR_PATH . '/models/membership-area.php';
+
   }
 }
 

@@ -3,8 +3,6 @@ class Membership_Area {
   const TABLE_NAME_SUFIX = 'membership_areas';
 
   public static function create_table() {
-    // global $wpdb;
-    // $table_name = $wpdb->prefix . self::TABLE_NAME;
     $table_name = self::table_name();
     $sql = "CREATE TABLE $table_name (
       id INT NOT NULL AUTO_INCREMENT,
@@ -13,7 +11,6 @@ class Membership_Area {
       offer INT NOT NULL,
       PRIMARY KEY  (id)
     );";
-
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
   }
@@ -27,6 +24,10 @@ class Membership_Area {
     $table_name = self::table_name();
     $sql = "SELECT * FROM $table_name WHERE id = $id";
     return $wpdb->get_row($sql);
+  }
+
+  public static function test() {
+    return 'kk';
   }
 }
 
