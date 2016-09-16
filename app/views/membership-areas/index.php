@@ -9,6 +9,12 @@
 
 <?php
 Hotmembers3::include_models();
-echo Membership_Area::test();
+
+$m = new Membership_Area_Model(1,'name',123,'oiu');
+echo $m->get_name();
+
+Membership_Area::add($m);
+
+
 
 ?>

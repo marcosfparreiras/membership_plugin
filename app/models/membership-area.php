@@ -26,6 +26,22 @@ class Membership_Area {
     return $wpdb->get_row($sql);
   }
 
+  public static function add($membership_area) {
+    global $wpdb;
+    $table = self::table_name();
+    $data = array(
+      'name' => $membership_area->get_name(),
+      'prod' => $membership_area->get_prod(),
+      'offer' => $membership_area->get_offer()
+    );
+    $format = array(
+      '%s',
+      '%d',
+      '%s',
+    );
+    $wpdb->insert( $table, $data, $format );
+  }
+
   public static function test() {
     return 'kk';
   }

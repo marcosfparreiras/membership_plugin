@@ -26,6 +26,7 @@ class Hotmembers3 {
   }
 
   public static function include_models() {
+    include self::DIR_PATH . '/models/membership-area-model.php';
     include self::DIR_PATH . '/models/membership-area.php';
 
   }
