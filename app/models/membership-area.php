@@ -5,7 +5,7 @@ class Membership_Area {
   public static function create_table() {
     // global $wpdb;
     // $table_name = $wpdb->prefix . self::TABLE_NAME;
-    $table_name = self.table_name();
+    $table_name = self::table_name();
     $sql = "CREATE TABLE $table_name (
       id INT NOT NULL AUTO_INCREMENT,
       name varchar(55) NOT NULL,
@@ -23,8 +23,8 @@ class Membership_Area {
     return $wpdb->prefix . self::TABLE_NAME_SUFIX;
   }
 
-  public static function find($id) {
-    $table_name = self.table_name();
+  public function find($id) {
+    $table_name = self::table_name();
     $sql = "SELECT * FROM $table_name WHERE id = $id";
     return $wpdb->get_row($sql);
   }

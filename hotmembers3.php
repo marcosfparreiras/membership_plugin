@@ -12,10 +12,9 @@ Version: 0.0.0
 
 $hm3_path = dirname(__FILE__) . '/app';
 include_once $hm3_path . '/class-hotmembers3.php';
-
 new Hotmembers3();
 
-// include_once plugin_dir_path( __FILE__ ) . 'app/models/member-area.php';
-// register_activation_hook( __FILE__, array( 'Hotmembers3', 'create_tables' ) );
+include_once $hm3_path . '/models/membership-area.php';
+register_activation_hook( __FILE__, array( 'Membership_Area', 'create_table' ) );
 
 ?>
