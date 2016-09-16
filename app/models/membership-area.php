@@ -20,10 +20,22 @@ class Membership_Area {
     return $wpdb->prefix . self::TABLE_NAME_SUFIX;
   }
 
-  public function find($id) {
+  public static function find($id) {
+    global $wpdb;
     $table_name = self::table_name();
     $sql = "SELECT * FROM $table_name WHERE id = $id";
-    return $wpdb->get_row($sql);
+    $data = $wpdb->get_row($sql);
+    if($data == null) {
+      return null;
+    }
+    else {
+      return new Membership_Area_Model(
+        $data->id,
+        $data->name,
+        $data->prod,
+        $data->offer
+      );
+    }
   }
 
   public static function add($membership_area) {

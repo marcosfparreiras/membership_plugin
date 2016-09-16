@@ -10,10 +10,18 @@
 <?php
 Hotmembers3::include_models();
 
-$m = new Membership_Area_Model(1,'name',123,'oiu');
-echo $m->get_name();
+// $m = new Membership_Area_Model(1,'name',123,'oiu');
+// $m = new Membership_Area_Model(2,'name2',1223,'o34iu');
+// Membership_Area::add($m);
+// echo $m->get_name();
 
-Membership_Area::add($m);
+$ret =  Membership_Area::find(2);
+if( $ret == null) {
+  echo 'nulll';
+}
+else {
+  echo $ret->get_name();
+}
 
 
 
