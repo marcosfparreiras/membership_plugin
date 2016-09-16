@@ -21,33 +21,27 @@ class Admin_Menus_Controller {
   }
 
   public static function membership_areas_index() {
-    $dir = dirname(dirname(__FILE__));
-    include($dir  . "/views/membership-areas/index.php");
+    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/index.php");
   }
 
   public static function settings() {
-    $dir = dirname(dirname(__FILE__));
-    include($dir  . "/views/settings.php");
+    include(Hotmembers3::DIR_PATH  . "/views/settings.php");
   }
 
   public static function help() {
-    $dir = dirname(dirname(__FILE__));
-    include($dir  . "/views/help.php");
+    include(Hotmembers3::DIR_PATH  . "/views/help.php");
   }
 
   public static function membership_areas_add() {
-    $dir = dirname(dirname(__FILE__));
-    include($dir  . "/views/membership-areas/add.php");
+    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/add.php");
   }
 
   public static function membership_areas_show() {
-    $dir = dirname(dirname(__FILE__));
-    include($dir  . "/views/membership-areas/show.php");
+    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/show.php");
   }
 
   public static function membership_areas_delete() {
-    $dir = dirname(dirname(__FILE__));
-    include($dir  . "/views/membership-areas/delete.php");
+    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/delete.php");
   }
 }
 

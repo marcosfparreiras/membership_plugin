@@ -1,6 +1,6 @@
 <?php
 class Membership_Area {
-  const TABLE_NAME_SUFIX = 'members_areas';
+  const TABLE_NAME_SUFIX = 'membership_areas';
 
   public static function create_table() {
     // global $wpdb;

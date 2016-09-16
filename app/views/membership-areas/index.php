@@ -6,3 +6,17 @@
   </h2>
 </div>
 </html>
+
+<?php
+echo Hotmembers3::DIR_PATH;
+echo '<br>';
+echo Hotmembers3::URL_PATH;
+
+// echo plugins_url();
+// echo WP_PLUGIN_DIR;
+// echo '<br>';
+// echo WP_PLUGIN_URL;
+// echo '<br>';
+// echo WP_PLUGIN_DIR . '/hotmembers3';
+
+?>
