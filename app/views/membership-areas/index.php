@@ -8,9 +8,6 @@
 </html>
 
 <?php
-// Hotmembers3::include_models();
-// Hotmembers3::include_membership_areas_controller();
-// include Hotmembers3::DIR_PATH . '/models/membership-area-model.php';
 include Hotmembers3::DIR_PATH . '/models/membership-area.php';
 include Hotmembers3::DIR_PATH . '/controllers/membership-areas-controller.php';
 
@@ -21,14 +18,5 @@ foreach($a as $am){
   echo "$am->id - $am->name - $am->prod - $am->offer<br>";
 }
 
-// $obj = [
-//   'id' => 88,
-//   'name' => 'myname',
-//   'prod' => 'myprod',
-//   'offer' => 'myoffer'
-// ];
-// $obj = (object) $obj;
-// $a = Membership_Area_Model::with_object($obj);
-// var_dump($a);
 
 ?>
