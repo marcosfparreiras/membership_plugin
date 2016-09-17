@@ -12,23 +12,42 @@ Membership_Areas_Controller::act();
     Áreas de Membros Adicionar
     <a href="<?php echo get_site_url() . '/wp-admin/admin.php?page=hm3_membership_areas_add'?>" class="add-new-h2">Adicionar Nova</a>
   </h2>
-</div>
-</html>
+  <table class="wp-list-table widefat fixed striped posts">
+  <!-- <table class="wp-list-table widefat striped"> -->
+    <thead>
+      <td>Nome</td>
+      <td>Produto</td>
+    </thead>
+    <tbody>
+
 
 <?php
+$membership_areas = Membership_Areas_Controller::index();
+$base_url = get_site_url() . '/wp-admin/admin.php?';
+foreach($membership_areas as $membership){
+  $id = $membership->id;
+  $name = $membership->name;
+  $prod = $membership->prod;
 
+  $edit_url = $base_url . "page=hm3_membership_areas_show&id=$id";
+  $delete_url = $base_url . "page=hm3_membership_areas_delete&id=$id";
 
-$a = Membership_Areas_Controller::index();
-var_dump($a);
+  $edit_link = "<a href='$edit_url'>Editar</a>";
+  $delete_link = "<a style='color: red;' href='$delete_url'>Excluir</a>";
 
-foreach($a as $am){
-  echo "$am->id - $am->name - $am->prod - $am->offer<br>";
+  $actions_line = "$edit_link | $delete_link ";
+  echo "<tr>";
+  echo "<td>";
+  echo "<spam class='row-title'>$name</spam><br>";
+  echo $actions_line;
+  echo "</td>";
+  // echo "<td><a href='$url'>$name</a><br>Test</td>";
+  echo "<td>$prod</td>";
+  echo "</tr>";
 }
 
-echo '<br>';
-echo '<br>';
-echo '<br>';
-var_dump($_POST);
-
-
 ?>
+    </tbody>
+  </table>
+</div>
+</html>
