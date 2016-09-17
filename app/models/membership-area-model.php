@@ -5,7 +5,7 @@ class Membership_Area_Model {
   var $prod;
   var $offer;
 
-  function __construct($id, $name, $prod, $offer) {
+  function __construct($id, $name, $prod, $offer = '') {
     $this->id = $id;
     $this->name = $name;
     $this->prod = $prod;

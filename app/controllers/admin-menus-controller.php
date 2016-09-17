@@ -1,5 +1,4 @@
 <?php
-
 class Admin_Menus_Controller {
 
   public static function create_menus() {

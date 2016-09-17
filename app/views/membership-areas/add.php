@@ -13,23 +13,20 @@ $index_page = get_site_url() . '/wp-admin/admin.php?page=hm3_main_menu';
       <tbody>
         <tr>
           <td>Nome</td>
-          <td><input type="text" size="40"></td>
+          <td><input type="text" name="name" size="40"></td>
         </tr>
         <tr>
           <td>ID do Produto</td>
-          <td><input type="text" size="40"></td>
+          <td><input type="text" name="prod" size="40"></td>
         </tr>
         <!-- <tr>
           <td>Token</td>
           <td><input type="text" size="40"></td>
         </tr> -->
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
       </tbody>
     </table>
     <br>
+    <input type="hidden" name="method" value="add" />
     <a class="button button-primary" href="<?php echo $index_page ?>" >Cancelar</a>
     <input type="submit" class="button button-primary" value="Adicionar">
   </form>
