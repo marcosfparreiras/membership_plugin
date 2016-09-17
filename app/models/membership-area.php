@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/membership-area-model.php';
+
 class Membership_Area {
   const TABLE_NAME_SUFIX = 'membership_areas';
 
@@ -36,7 +38,7 @@ class Membership_Area {
     $wpdb->insert( $table, $data, $format );
   }
 
-  public static function update($membership_area, $id) {
+  public static function update($membership_area) {
     global $wpdb;
     $table = self::table_name();
     $data = array(
@@ -45,7 +47,7 @@ class Membership_Area {
       'offer' => $membership_area->get_offer()
     );
     $where = array(
-      'id' => $id
+      'id' => $membership_area
     );
     $format = array(
       '%s',

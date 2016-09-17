@@ -24,15 +24,6 @@ class Hotmembers3 {
     self::include_models();
     Membership_Area::create_table();
   }
-
-  public static function include_models() {
-    include self::DIR_PATH . '/models/membership-area-model.php';
-    include self::DIR_PATH . '/models/membership-area.php';
-  }
-
-  public static function include_membership_areas_controller() {
-    include self::DIR_PATH . '/controllers/membership-areas-controller.php';
-  }
 }
 
 ?>

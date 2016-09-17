@@ -8,8 +8,11 @@
 </html>
 
 <?php
-Hotmembers3::include_models();
-Hotmembers3::include_membership_areas_controller();
+// Hotmembers3::include_models();
+// Hotmembers3::include_membership_areas_controller();
+// include Hotmembers3::DIR_PATH . '/models/membership-area-model.php';
+include Hotmembers3::DIR_PATH . '/models/membership-area.php';
+include Hotmembers3::DIR_PATH . '/controllers/membership-areas-controller.php';
 
 $a = Membership_Areas_Controller::index();
 var_dump($a);
