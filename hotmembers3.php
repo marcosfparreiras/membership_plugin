@@ -24,6 +24,7 @@ include( HOTMEMBERS3_CONTROLLERS_PATH . '/admin-menus-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller.php');
 # include libs
 include( HOTMEMBERS3_LIB_PATH . '/membership-areas-controller-add.php');
+include( HOTMEMBERS3_LIB_PATH . '/membership-areas-controller-delete.php');
 
 include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();

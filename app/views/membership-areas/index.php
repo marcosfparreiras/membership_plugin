@@ -1,5 +1,5 @@
 <?php
-Membership_Areas_Controller::act();
+Membership_Areas_Controller::perform_on_post();
 ?>
 
 <html>

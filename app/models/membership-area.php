@@ -75,11 +75,11 @@ class Membership_Area {
     }
   }
 
-  public static function delete($id) {
+  public static function delete($membership_area) {
     global $wpdb;
     $table = self::table_name();
     $where = array(
-      'id' => $id
+      'id' => $membership_area->id
     );
     $format = array(
       '%d',
