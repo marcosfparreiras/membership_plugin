@@ -2,41 +2,42 @@
 class Content_Retriever {
 
   public static function perform() {
+    $post_types = self::get_post_types_names();
+    $posts_data = self::get_posts_data($post_types);
+    return $posts_data;
+  }
+
+  public static function get_post_types_names() {
     $post_types = get_post_types();
-    return self::post_types_ids($post_types);
+    return array_keys($post_types);
   }
 
   public static function get_posts_data($post_types) {
-    $types = [];
-    foreach($post_types as $type) {
-      $types[$type] = self::get_post_ids_by_type($type);
-    }
-    return $types;
-  }
-
-  public static function get_post_data($post_id) {
-    $post = get_post($post_id);
     $post_data = [];
-    $post_data['id'] = $post->ID;
-    $post_data['post_title'] = $post->post_title;
-    $post_data['url'] = $post->guid;
-    return $post_data;
+    foreach($post_types as $post_type) {
+      $full_posts_data = self::get_posts_data_by_type($post_type);
+    }
   }
 
-  public static function get_post_ids_by_type($type) {
-    $args = array(
-      'post_type'       => $type,
-      'posts_per_page'  => 999,
-      'offset'          => 0
+  public static function get_posts_data_by_type($post_type) {
+    $args=array(
+      'post_type' => $post_type,
     );
-    $post_ids = get_posts(array(
-      $args,
-      'fields' => 'ids', // Only get post IDs
-    ));
-    return $post_ids;
+    return get_posts( $args );
   }
 
+  public static function formatted_posts_data($full_posts_data) {
+    $formatted_posts = [];
+    foreach($full_posts_data as $full_post_data) {
+      $formatted_post = [];
+      $formatted_post['id'] = $full_post_data->ID;
+      $formatted_post['post_title'] = $full_post_data->post_title;
+      $formatted_post['post_title'] = $full_post_data->post_title;
+      $formatted_post['url'] = $full_post_data->guid;
+      $formatted_posts << $formatted_post;
+    }
+    return $formatted_posts;
+  }
 
 }
-
 ?>
