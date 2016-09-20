@@ -9,7 +9,6 @@ Membership_Areas_Controller::perform_on_post();
     <a href="<?php echo get_site_url() . '/wp-admin/admin.php?page=hm3_membership_areas_add'?>" class="add-new-h2">Adicionar Nova</a>
   </h2>
   <table class="wp-list-table widefat fixed striped posts">
-  <!-- <table class="wp-list-table widefat striped"> -->
     <thead>
       <td>Nome</td>
       <td>Produto</td>
