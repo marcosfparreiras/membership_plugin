@@ -41,9 +41,14 @@ class Membership_Areas_Controller {
     return $areas;
   }
 
-  public static function delete($membership_id) {
+  public static function delete($get) {
+    $membership_id = $_GET['id'];
     return Membership_Area::find($membership_id);
   }
+
+  // public static function update($membership_id) {
+  //   return Membership_Area::find($membership_id);
+  // }
 }
 
 ?>

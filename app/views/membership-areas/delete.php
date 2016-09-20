@@ -1,8 +1,6 @@
 <?php
 $index_page = get_site_url() . '/wp-admin/admin.php?page=hm3_main_menu';
-$membership_id = $_GET['id'];
-$membership_area = Membership_Areas_Controller::delete($membership_id);
-$name = $membership_area->name;
+$membership_area = Membership_Areas_Controller::delete($_GET);
 ?>
 <html>
 <div class="wrap">
@@ -26,8 +24,8 @@ $name = $membership_area->name;
     </table>
     <br>
     <input type="hidden" name="method" value="delete" />
-    <input type="hidden" name="id" value="<?php echo $membership_id ?>" />
-    <input type="hidden" name="name" value="<?php echo $name ?>" />
+    <input type="hidden" name="id" value="<?php echo $membership_area->id ?>" />
+    <input type="hidden" name="name" value="<?php echo $membership_area->name ?>" />
     <a class="button button-primary" href="<?php echo $index_page ?>" >Cancelar</a>
     <input type="submit" class="button button-primary" value="Excluir">
   </form>
