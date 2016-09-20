@@ -1,5 +1,9 @@
 <?php
-Content_Retriever::perform();
+$posts = Content_Retriever::perform();
+foreach ($posts as $post) {
+  echo '<br><br>';
+  var_dump($post);
+}
 
 ?>
 
@@ -10,22 +14,25 @@ Content_Retriever::perform();
   Defina quais conteúdos você deseja que sejam restritos para cada uma das suas áreas de membros.
   <table class="wp-list-table widefat fixed striped posts">
     <thead>
-      <td>Tipo</td>
+      <td width="40px">Tipo</td>
       <td>Título</td>
       <td>Conteúdo Restrito</td>
       <td>Área 1</td>
-      <td>Área 2</td>
-      <td>Área 2</td>
-      <td>Área 2</td>
     </thead>
     <tbody>
-      <td>Tipo</td>
-      <td>Título</td>
-      <td>Conteúdo Restrito</td>
-      <td>Área 1</td>
-      <td>Área 2</td>
-      <td>Área 2</td>
-      <td>Área 2</td>
+<?php
+foreach($posts as $post) {
+  $type = $post['post_type'];
+  $title = $post['post_title'];
+  $id = $post['id'];
+  $url = $post['url'];
+
+  echo '<tr>';
+  echo '<td width="40px">' . $type . '</td>';
+  echo '<td><a href="' . $url . '">' . $title . '</a></td>';
+  echo '</tr>';
+}
+?>
     </tbody>
   </table>
 </div>
