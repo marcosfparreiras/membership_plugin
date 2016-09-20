@@ -12,7 +12,7 @@ class Admin_Menus_Controller {
 
     // Define plugin pages withou menus
     add_submenu_page( '', 'Adicionar Área de Membros', 'Adicionar Área de Membros', 'manage_options', 'hm3_membership_areas_add', array('Admin_Menus_Controller', 'membership_areas_add') );
-    add_submenu_page( '', 'Editar Área de Membros', 'Editar Área de Membros', 'manage_options', 'hm3_membership_areas_show', array('Admin_Menus_Controller', 'membership_areas_show') );
+    add_submenu_page( '', 'Editar Área de Membros', 'Editar Área de Membros', 'manage_options', 'hm3_membership_areas_update', array('Admin_Menus_Controller', 'membership_areas_update') );
     add_submenu_page( '', 'Excluir Área de Membros', 'Excluir Área de Membros', 'manage_options', 'hm3_membership_areas_delete', array('Admin_Menus_Controller', 'membership_areas_delete') );
   }
 
@@ -35,8 +35,8 @@ class Admin_Menus_Controller {
     include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/add.php");
   }
 
-  public static function membership_areas_show() {
-    include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/show.php");
+  public static function membership_areas_update() {
+    include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/update.php");
   }
 
   public static function membership_areas_delete() {

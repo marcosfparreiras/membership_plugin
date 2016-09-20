@@ -11,11 +11,11 @@ class Membership_Areas_Controller {
 
         case 'update':
           echo 'UPDATE';
+          Membership_Area_Controller_Update::perform($_POST);
           break;
 
         case 'delete':
           echo 'DELETE';
-          var_dump($_POST);
           Membership_Area_Controller_Delete::perform($_POST);
           break;
 
@@ -46,9 +46,10 @@ class Membership_Areas_Controller {
     return Membership_Area::find($membership_id);
   }
 
-  // public static function update($membership_id) {
-  //   return Membership_Area::find($membership_id);
-  // }
+  public static function update($get) {
+    $membership_id = $_GET['id'];
+    return Membership_Area::find($membership_id);
+  }
 }
 
 ?>

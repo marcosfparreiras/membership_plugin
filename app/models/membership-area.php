@@ -47,7 +47,7 @@ class Membership_Area {
       'offer' => $membership_area->get_offer()
     );
     $where = array(
-      'id' => $membership_area
+      'id' => $membership_area->get_id()
     );
     $format = array(
       '%s',

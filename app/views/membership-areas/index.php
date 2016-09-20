@@ -25,7 +25,7 @@ foreach($membership_areas as $membership){
   $name = $membership->name;
   $prod = $membership->prod;
 
-  $edit_url = $base_url . "page=hm3_membership_areas_show&id=$id";
+  $edit_url = $base_url . "page=hm3_membership_areas_update&id=$id";
   $delete_url = $base_url . "page=hm3_membership_areas_delete&id=$id";
 
   $edit_link = "<a href='$edit_url'>Editar</a>";
