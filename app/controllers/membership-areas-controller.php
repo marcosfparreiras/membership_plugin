@@ -1,5 +1,4 @@
 <?php
-
 class Membership_Areas_Controller {
 
   public static function act() {

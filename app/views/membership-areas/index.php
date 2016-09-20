@@ -1,8 +1,4 @@
 <?php
-include Hotmembers3::DIR_PATH . '/models/membership-area.php';
-include Hotmembers3::DIR_PATH . '/controllers/membership-areas-controller.php';
-include Hotmembers3::DIR_PATH . '/lib/membership-areas-controller-add.php';
-
 Membership_Areas_Controller::act();
 ?>
 

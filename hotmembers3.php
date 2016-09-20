@@ -3,15 +3,29 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 /*
 Plugin Name: Hotmembers 3.0
-Plugi<!-- n URI: http://hotmembers.com.br/
+URI: http://hotmembers.com.br/
 Description: [HOTMEMBERS 3.0] Crie sua área de membros de uma forma prática, eficiente e 100% integrada com o Hotmart
 Author: Marcos Parreiras
 Author URI: http://hotmembers.com.br/
 Version: 0.0.0
 */
 
-$hm3_path = dirname(__FILE__) . '/app';
-include_once $hm3_path . '/class-hotmembers3.php';
+define( 'HOTMEMBERS3_DIR_PATH', plugin_dir_path( __FILE__ ) );
+
+define( 'HOTMEMBERS3_MODELS_PATH', HOTMEMBERS3_DIR_PATH . 'app/models' );
+define( 'HOTMEMBERS3_VIEWS_PATH', HOTMEMBERS3_DIR_PATH . 'app/views' );
+define( 'HOTMEMBERS3_CONTROLLERS_PATH', HOTMEMBERS3_DIR_PATH . 'app/controllers' );
+define( 'HOTMEMBERS3_LIB_PATH', HOTMEMBERS3_DIR_PATH . 'app/lib' );
+
+# include models
+include( HOTMEMBERS3_MODELS_PATH . '/membership-area.php');
+# include controllers
+include( HOTMEMBERS3_CONTROLLERS_PATH . '/admin-menus-controller.php');
+include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller.php');
+# include libs
+include( HOTMEMBERS3_LIB_PATH . '/membership-areas-controller-add.php');
+
+include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
 
 register_activation_hook( __FILE__, array( 'Hotmembers3', 'on_activate' ) );

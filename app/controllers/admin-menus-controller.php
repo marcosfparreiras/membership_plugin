@@ -20,27 +20,27 @@ class Admin_Menus_Controller {
   }
 
   public static function membership_areas_index() {
-    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/index.php");
+    include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/index.php");
   }
 
   public static function settings() {
-    include(Hotmembers3::DIR_PATH  . "/views/settings.php");
+    include(HOTMEMBERS3_VIEWS_PATH  . "/settings.php");
   }
 
   public static function help() {
-    include(Hotmembers3::DIR_PATH  . "/views/help.php");
+    include(HOTMEMBERS3_VIEWS_PATH  . "/help.php");
   }
 
   public static function membership_areas_add() {
-    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/add.php");
+    include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/add.php");
   }
 
   public static function membership_areas_show() {
-    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/show.php");
+    include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/show.php");
   }
 
   public static function membership_areas_delete() {
-    include(Hotmembers3::DIR_PATH  . "/views/membership-areas/delete.php");
+    include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/delete.php");
   }
 }
 
