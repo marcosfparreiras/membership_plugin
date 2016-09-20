@@ -1,8 +1,9 @@
-<?php
-?>
-
 <html>
 <div class="wrap">
-  <h2>Ajuda</h2>
+  <h2>Conteúdo Restrito</h2>
 </div>
 </html>
+
+<?php
+
+?>

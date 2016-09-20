@@ -7,6 +7,7 @@ class Admin_Menus_Controller {
     // Define plugin sidebar menu
     add_menu_page( 'Hotmembers 3.0', 'Hotmembers 3.0', 'manage_options', 'hm3_main_menu', array('Admin_Menus_Controller', 'main_menu'), $icon, 98 );
     add_submenu_page( 'hm3_main_menu', 'Áreas de Membros', 'Áreas de Membros', 'manage_options', 'hm3_main_menu', array('Admin_Menus_Controller', 'membership_areas_index') );
+    add_submenu_page( 'hm3_main_menu', 'Conteúdo Restrito', 'Conteúdo Restrito', 'manage_options', 'hm3_restricted_content', array('Admin_Menus_Controller', 'restricted_content') );
     add_submenu_page( 'hm3_main_menu', 'Configurações', 'Configurações', 'manage_options', 'hm3_settings', array('Admin_Menus_Controller', 'settings') );
     add_submenu_page( 'hm3_main_menu', 'Ajuda', 'Ajuda', 'manage_options', 'hm3_help', array('Admin_Menus_Controller', 'help') );
 
@@ -25,6 +26,10 @@ class Admin_Menus_Controller {
 
   public static function settings() {
     include(HOTMEMBERS3_VIEWS_PATH  . "/settings.php");
+  }
+
+  public static function restricted_content() {
+    include(HOTMEMBERS3_VIEWS_PATH  . "/restricted-content.php");
   }
 
   public static function help() {
