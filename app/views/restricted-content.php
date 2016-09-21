@@ -1,11 +1,6 @@
 <?php
 $posts = Restricted_Content_Controller::content_data();
 $membership_areas = Restricted_Content_Controller::membership_areas();
-foreach ($posts as $post) {
-  echo '<br><br>';
-  var_dump($post);
-}
-
 ?>
 
 <html>
@@ -18,16 +13,18 @@ foreach ($posts as $post) {
       <td>Tipo</td>
       <td>Título</td>
       <td>Conteúdo Restrito</td>
+
 <?php
 foreach($membership_areas as $membership_area) {
   $id = $membership_area->id;
   $name = $membership_area->name;
   echo '<td>' . $name . '</td>';
 }
-
 ?>
+
     </thead>
     <tbody>
+
 <?php
 foreach($posts as $post) {
   $type = $post['post_type'];
@@ -47,7 +44,22 @@ foreach($posts as $post) {
   echo '</tr>';
 }
 ?>
+
     </tbody>
+    <tfoot>
+      <td>Tipo</td>
+      <td>Título</td>
+      <td>Conteúdo Restrito</td>
+
+<?php
+foreach($membership_areas as $membership_area) {
+  $id = $membership_area->id;
+  $name = $membership_area->name;
+  echo '<td>' . $name . '</td>';
+}
+
+?>
+    </tfoot>
   </table>
 </div>
 </html>

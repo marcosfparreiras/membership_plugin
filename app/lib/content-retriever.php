@@ -23,6 +23,7 @@ class Content_Retriever {
   public static function get_posts_data($post_type) {
     $args=array(
       'post_type' => $post_type,
+      'posts_per_page'   => 999
     );
     return get_posts( $args );
   }
