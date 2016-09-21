@@ -11,10 +11,16 @@ class Admin_Menus_Controller {
     add_submenu_page( 'hm3_main_menu', 'Configurações', 'Configurações', 'manage_options', 'hm3_settings', array('Admin_Menus_Controller', 'settings') );
     add_submenu_page( 'hm3_main_menu', 'Ajuda', 'Ajuda', 'manage_options', 'hm3_help', array('Admin_Menus_Controller', 'help') );
 
+    add_submenu_page( 'hm3_main_menu', 'Testes', 'Testes', 'manage_options', 'hm3_tets', array('Admin_Menus_Controller', 'test') );
+
     // Define plugin pages withou menus
     add_submenu_page( '', 'Adicionar Área de Membros', 'Adicionar Área de Membros', 'manage_options', 'hm3_membership_areas_add', array('Admin_Menus_Controller', 'membership_areas_add') );
     add_submenu_page( '', 'Editar Área de Membros', 'Editar Área de Membros', 'manage_options', 'hm3_membership_areas_update', array('Admin_Menus_Controller', 'membership_areas_update') );
     add_submenu_page( '', 'Excluir Área de Membros', 'Excluir Área de Membros', 'manage_options', 'hm3_membership_areas_delete', array('Admin_Menus_Controller', 'membership_areas_delete') );
+  }
+
+  public static function test() {
+    include(HOTMEMBERS3_VIEWS_PATH  . "/test.php");
   }
 
   public static function main_menu() {
