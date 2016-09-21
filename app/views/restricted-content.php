@@ -1,5 +1,6 @@
 <?php
-$posts = Content_Retriever::perform();
+$posts = Restricted_Content_Controller::content_data();
+$membership_areas = Restricted_Content_Controller::membership_areas();
 foreach ($posts as $post) {
   echo '<br><br>';
   var_dump($post);
@@ -14,10 +15,17 @@ foreach ($posts as $post) {
   Defina quais conteúdos você deseja que sejam restritos para cada uma das suas áreas de membros.
   <table class="wp-list-table widefat fixed striped posts">
     <thead>
-      <td width="40px">Tipo</td>
+      <td>Tipo</td>
       <td>Título</td>
       <td>Conteúdo Restrito</td>
-      <td>Área 1</td>
+<?php
+foreach($membership_areas as $membership_area) {
+  $id = $membership_area->id;
+  $name = $membership_area->name;
+  echo '<td>' . $name . '</td>';
+}
+
+?>
     </thead>
     <tbody>
 <?php
@@ -28,8 +36,14 @@ foreach($posts as $post) {
   $url = $post['url'];
 
   echo '<tr>';
-  echo '<td width="40px">' . $type . '</td>';
+  echo '<td>' . $type . '</td>';
   echo '<td><a href="' . $url . '">' . $title . '</a></td>';
+  echo '<td><input type="checkbox"></td>';
+  foreach($membership_areas as $membership_area) {
+    $id = $membership_area->id;
+    $name = $membership_area->name;
+    echo '<td><input type="checkbox"></td>';
+  }
   echo '</tr>';
 }
 ?>
