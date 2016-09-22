@@ -28,6 +28,7 @@ include( HOTMEMBERS3_CONTROLLERS_PATH . '/admin-menus-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/restricted-content-controller.php');
 # include libs
+include( HOTMEMBERS3_LIB_PATH . '/assets-manager.php');
 include( HOTMEMBERS3_LIB_PATH . '/membership-areas-controller-add.php');
 include( HOTMEMBERS3_LIB_PATH . '/membership-areas-controller-delete.php');
 include( HOTMEMBERS3_LIB_PATH . '/membership-areas-controller-update.php');
@@ -37,30 +38,5 @@ include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
 
 register_activation_hook( __FILE__, array( 'Hotmembers3', 'on_activate' ) );
-
-// function test_adding_scripts() {
-//   wp_register_script('ex_script', HOTMEMBERS3_ASSETS_URL . '/javascripts/ex.js', array('jquery'),'1.1', true);
-//   wp_enqueue_script('ex_script');
-
-//   wp_register_style('test_css', HOTMEMBERS3_ASSETS_URL . '/stylesheets/test.css');
-//   wp_enqueue_style('test_css');
-// }
-// add_action( 'wp_enqueue_scripts', 'test_adding_scripts' );
-
-
-add_action( 'admin_enqueue_scripts', 'hm3_enqueue_scripts' );
-function hm3_enqueue_scripts(){
-  wp_enqueue_script(
-    'hm2-licence-script-script',
-    HOTMEMBERS3_ASSETS_URL . '/javascripts/ex.js',
-    array('hm2-jq')
-  );
-  wp_enqueue_script(
-    'hm2-jq',
-    HOTMEMBERS3_ASSETS_URL . '/javascripts/hm2-jquery.js'
-  );
-}
-
-
 
 ?>
