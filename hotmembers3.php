@@ -52,13 +52,14 @@ add_action( 'admin_enqueue_scripts', 'hm3_enqueue_scripts' );
 function hm3_enqueue_scripts(){
   wp_enqueue_script(
     'hm2-licence-script-script',
-    HOTMEMBERS3_ASSETS_URL . '/javascripts/ex.js'
-    // array('jquery')
+    HOTMEMBERS3_ASSETS_URL . '/javascripts/ex.js',
+    array('hm2-jq')
   );
-
-  // wp_enqueue_script( 'hm2-jq', HM2_URL . '/includes/js/hm2-jquery.js' );
-  // wp_enqueue_script( 'hm2-licence-script-script', HM2_URL . '/includes/js/hm2-licence-script.js', array( 'hm2-jq' ) );
-  }
+  wp_enqueue_script(
+    'hm2-jq',
+    HOTMEMBERS3_ASSETS_URL . '/javascripts/hm2-jquery.js'
+  );
+}
 
 
 
