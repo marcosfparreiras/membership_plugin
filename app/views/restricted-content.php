@@ -31,15 +31,21 @@ foreach($posts as $post) {
   $title = $post['post_title'];
   $id = $post['id'];
   $url = $post['url'];
+  $post_id = $post['id'];
+
+  $restricted_class = 'class="' . $id . '"';
 
   echo '<tr>';
   echo '<td>' . $type . '</td>';
   echo '<td><a href="' . $url . '">' . $title . '</a></td>';
-  echo '<td><input type="checkbox"></td>';
+
+  // echo '<td><input type="checkbox" class="' . $id . '"></td>';
+  echo '<td><input type="checkbox" ' . $restricted_class . '"></td>';
   foreach($membership_areas as $membership_area) {
     $id = $membership_area->id;
     $name = $membership_area->name;
-    echo '<td><input type="checkbox"></td>';
+    $membership_class = 'class="' . $post_id . ' ma-' . $membership_area->id . '"';
+    echo '<td><input type="checkbox" ' . $membership_class . '></td>';
   }
   echo '</tr>';
 }

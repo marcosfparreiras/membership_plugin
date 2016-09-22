@@ -8,7 +8,7 @@ echo HOTMEMBERS3_ASSETS_URL . '/javascripts/ex.js';
 
 <html>
 <div class="wrap">
-  <h2>Ajuda</h2>
+  <h2>Testes</h2>
 </div>
 <p>Paragrafo de teste</p>
 </html>
