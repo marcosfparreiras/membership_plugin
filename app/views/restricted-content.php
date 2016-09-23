@@ -29,23 +29,19 @@ foreach($membership_areas as $membership_area) {
 foreach($posts as $post) {
   $type = $post['post_type'];
   $title = $post['post_title'];
-  $id = $post['id'];
-  $url = $post['url'];
   $post_id = $post['id'];
-
-  $restricted_class = 'class="' . $id . '"';
+  $url = $post['url'];
 
   echo '<tr>';
   echo '<td>' . $type . '</td>';
   echo '<td><a href="' . $url . '">' . $title . '</a></td>';
-
-  // echo '<td><input type="checkbox" class="' . $id . '"></td>';
-  echo '<td><input type="checkbox" ' . $restricted_class . '"></td>';
+  echo '<td><input type="checkbox" id="' . $post_id . '"></td>';
   foreach($membership_areas as $membership_area) {
-    $id = $membership_area->id;
-    $name = $membership_area->name;
-    $membership_class = 'class="' . $post_id . ' ma-' . $membership_area->id . '"';
-    echo '<td><input type="checkbox" ' . $membership_class . '></td>';
+    $membership_id = $membership_area->id;
+    $membership_name = $membership_area->name;
+    $name_tag = 'name="' . $post_id . '[]"';
+    $value_tag = 'value="' . $membership_id . '"';
+    echo '<td><input type="checkbox" ' . $name_tag . ' ' . $value_tag . '"></td>';
   }
   echo '</tr>';
 }
