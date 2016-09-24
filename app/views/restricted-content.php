@@ -67,3 +67,35 @@ foreach($membership_areas as $membership_area) {
 </html>
 
 
+
+
+
+Notas importantes:
+Buscar todos itens com id:
+$('input[id]')
+
+Desabilitar com base no nome:
+$("input[name='20[]']").prop('disabled', false);
+
+Buscar inputs com id que estão marcados:
+$('input[id]:checked');
+
+Desabilitar checkboxes (estrutura muito parecida com a que será usada)
+$(function() {
+    $('#10').click(function() {
+        if ($(this).is(':checked')) {
+            $("input[name='10[]']").prop('disabled', false);
+        } else {
+            $("input[name='10[]']").prop('disabled', true);
+        }
+    });
+});
+
+
+Buscar pelo nome e pegar elemento
+$(function() {
+  $('input[type=checkbox]').click(function() {
+    var id = $(this).attr('id');
+    console.log(id);
+  });
+});
