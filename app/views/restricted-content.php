@@ -41,7 +41,10 @@ foreach($posts as $post) {
     $membership_name = $membership_area->name;
     $name_tag = 'name="' . $post_id . '[]"';
     $value_tag = 'value="' . $membership_id . '"';
-    echo '<td><input type="checkbox" ' . $name_tag . ' ' . $value_tag . '"></td>';
+    echo '<td>';
+    echo '<input type="checkbox" ' . $name_tag . ' ' . $value_tag . '">';
+    // echo '<input type="text" class="content_dripping" />';
+    echo '</td>';
   }
   echo '</tr>';
 }
