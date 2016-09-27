@@ -17,13 +17,10 @@ class Restricted_Content {
       $obj->membership_area_id
     );
   }
+
   public function get_id(){
     return $this->id;
   }
-
-  id
-  post_id
-  membership_area_id
 
   public function get_id() {
     return $this->id;
