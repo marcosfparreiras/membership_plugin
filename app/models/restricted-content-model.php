@@ -32,7 +32,6 @@ class Restricted_Content {
   }
   public function get_membership_area_id() {
     return $this->membership_area_id;
-
   }
 
   public function set_id($id) {
