@@ -2,7 +2,7 @@
 require_once __DIR__ . '/membership-area-model.php';
 
 class Membership_Area {
-  const TABLE_NAME_SUFIX = 'membership_areas';
+  const TABLE_NAME_SUFIX = 'hm3_membership_areas';
 
   public static function table_name() {
     global $wpdb;

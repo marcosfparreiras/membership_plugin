@@ -23,6 +23,7 @@ define( 'HOTMEMBERS3_ASSETS_PATH', HOTMEMBERS3_DIR_PATH . 'app/assets' );
 
 # include models
 include( HOTMEMBERS3_MODELS_PATH . '/membership-area.php');
+include( HOTMEMBERS3_MODELS_PATH . '/restricted-content.php');
 # include controllers
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/admin-menus-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller.php');
