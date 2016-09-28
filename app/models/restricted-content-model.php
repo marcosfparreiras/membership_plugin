@@ -2,12 +2,13 @@
 class Restricted_Content_Model {
   var $id;
   var $post_id;
+  var $days_to_release;
   var $membership_area_id;
 
   function __construct($id, $post_id, $days_to_release, $membership_area_id) {
     $this->id = $id;
     $this->post_id = $post_id;
-    $this->$days_to_release = $days_to_release;
+    $this->days_to_release = $days_to_release;
     $this->membership_area_id = $membership_area_id;
   }
 

@@ -2,7 +2,7 @@
 require_once __DIR__ . '/restricted-content-model.php';
 
 class Restricted_Content {
-  const TABLE_NAME_SUFIX = 'hm3_resticted_content';
+  const TABLE_NAME_SUFIX = 'hm3_restricted_content';
 
   public static function table_name() {
     global $wpdb;
@@ -25,17 +25,27 @@ class Restricted_Content {
   }
 
   public static function add($restricted_content) {
+    global $wpdb;
+    $table = self::table_name();
+    $data = array(
+      'post_id' => $restricted_content->get_post_id(),
+      'days_to_release' => $restricted_content->get_days_to_release(),
+      'membership_area_id' => $restricted_content->get_membership_area_id()
+    );
+    $format = array(
+      '%d',
+      '%d',
+      '%d',
+    );
+    $wpdb->insert( $table, $data, $format );
   }
 
-  public static function update($restricted_content) {
+  public static function clear_table() {
+    global $wpdb;
+    $table_name = self::table_name();
+    $sql = "DELETE FROM $table_name WHERE 1";
+    $wpdb->query($sql);
   }
-
-  public static function find($id) {
-  }
-
-  public static function delete($restricted_content) {
-  }
-
 
 }
 

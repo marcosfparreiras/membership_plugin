@@ -1,5 +1,13 @@
 <?php
+// $id = 1;
+// $prod_id = 1;
+// $days_to_release = 1;
+// $memership_area_id = 1;
+// $content = new Restricted_Content_Model($id, $prod_id, $days_to_release, $memership_area_id);
+// var_dump($content);
+// Restricted_Content::add($content);
 
+// Restricted_Content::clear_table();
 ?>
 
 <html>
