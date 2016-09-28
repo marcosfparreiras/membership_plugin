@@ -27,7 +27,6 @@ class Restricted_Content_Model {
 
   public function get_post_id() {
     return $this->post_id;
-
   }
 
   public function get_days_to_release() {
