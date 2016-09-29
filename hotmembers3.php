@@ -25,15 +25,14 @@ define( 'HOTMEMBERS3_ASSETS_PATH', HOTMEMBERS3_DIR_PATH . 'app/assets' );
 include( HOTMEMBERS3_MODELS_PATH . '/membership-area.php');
 include( HOTMEMBERS3_MODELS_PATH . '/restricted-content.php');
 # include controllers
-include( HOTMEMBERS3_CONTROLLERS_PATH . '/admin-menus-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership-areas-controller-add.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership-areas-controller-delete.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership-areas-controller-update.php');
-
-
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/restricted-content-controller.php');
+
 # include libs
+include( HOTMEMBERS3_LIB_PATH . '/admin-pages-creator.php');
 include( HOTMEMBERS3_LIB_PATH . '/assets-manager.php');
 include( HOTMEMBERS3_LIB_PATH . '/content-retriever.php');
 

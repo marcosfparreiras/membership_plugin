@@ -7,7 +7,7 @@ class Hotmembers3 {
 
   // Add plugin menu pages
   public function add_menus() {
-    add_action( 'admin_menu', array( 'Admin_Menus_Controller', 'create_menus') );
+    add_action( 'admin_menu', array( 'Admin_Pages_Creator', 'create_pages') );
   }
 
   public function add_assets() {
