@@ -1,7 +1,8 @@
 <?php
+Restricted_Content_Controller::add($_POST);
 $index_page = get_site_url() . '/wp-admin/admin.php?page=hm3_restricted_content';
 
-var_dump($_POST);
+// var_dump($_POST);
 $posts = Restricted_Content_Controller::content_data();
 $membership_areas = Restricted_Content_Controller::membership_areas();
 
