@@ -14,7 +14,7 @@ class Membership_Area {
     $sql = "CREATE TABLE $table_name (
       id INT NOT NULL AUTO_INCREMENT,
       name varchar(55) NOT NULL,
-      prod INT NOT NULL,
+      prod varchar(15) NOT NULL,
       offer INT NOT NULL,
       PRIMARY KEY  (id)
     );";
