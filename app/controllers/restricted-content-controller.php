@@ -36,8 +36,6 @@ class Restricted_Content_Controller {
               0,
               $membership_area_id
             );
-
-            // ::with_object($obj);
             Restricted_Content::add($restricted_content);
             echo $membership_area_id;
           }
@@ -45,27 +43,5 @@ class Restricted_Content_Controller {
       }
     }
   }
-
-
-
-    // if(isset($post['restricted'])) {
-    //   $posts_restricted = $post['restricted'];
-    //   foreach ($posts_restricted as $post_id) {
-    //     if(isset($post[$post_id])) {
-    //       $membership_areas = $post[$post_id];
-    //       if(isset($membership_areas)) {
-    //         foreach ($membership_areas as $membership_area) {
-    //           # code...
-    //         }
-    //       }
-    //     }
-    //       echo '   ' . $_post[$r];
-    //     # code...
-    //   }
-    // }
-    // else {
-    //   echo 'NO';
-    // }
-
 
 }
