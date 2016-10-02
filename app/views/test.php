@@ -7,7 +7,8 @@
 // var_dump($content);
 // Restricted_Content::add($content);
 
-// Restricted_Content::clear_table();
+$d = Restricted_Content::get();
+var_dump($d);
 ?>
 
 <html>

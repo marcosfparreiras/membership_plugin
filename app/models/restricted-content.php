@@ -47,6 +47,30 @@ class Restricted_Content {
     $wpdb->query($sql);
   }
 
+  public static function get() {
+    global $wpdb;
+    $table_name = self::table_name();
+    $sql = "SELECT post_id, membership_area_id from $table_name;";
+    return $wpdb->get_results($sql);
+  }
+
+  public static function formated_data() {
+    $results = self::get();
+    $posts = [];
+    if(isset($results)) {
+      foreach ($results as $result) {
+        // echo "$result->post_id" . " - " . "$result->membership_area_id<br>";
+        $posts["$result->post_id"][] = "$result->membership_area_id";
+      }
+    }
+    // echo '<br>POSTS<br>';
+    // var_dump($posts);
+    if(in_array(2, $posts[10])) {
+      // echo 'OK';
+    }
+    return $posts;
+  }
+
 }
 
 ?>
