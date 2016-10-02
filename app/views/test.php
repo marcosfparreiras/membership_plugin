@@ -7,8 +7,10 @@
 // var_dump($content);
 // Restricted_Content::add($content);
 
-$d = Restricted_Content::get();
+$d = Restricted_Content_Controller::index();
 var_dump($d);
+echo '<br><br>';
+var_dump(array_keys($d));
 ?>
 
 <html>

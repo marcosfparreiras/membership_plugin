@@ -1,6 +1,14 @@
 <?php
 class Restricted_Content_Controller {
 
+  public static function perform_on_post() {
+    if (isset($_POST['method'])) {
+      if ($_POST['method'] == 'add') {
+        self::populate($_POST);
+      }
+    }
+  }
+
   public static function content_data() {
     return Content_Retriever::perform();
   }
@@ -10,7 +18,7 @@ class Restricted_Content_Controller {
   }
 
   public static function index() {
-    return Restricted_Content::get();
+    return Restricted_Content::formated_data();
   }
 
   public static function populate($post) {

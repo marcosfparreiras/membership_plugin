@@ -59,14 +59,8 @@ class Restricted_Content {
     $posts = [];
     if(isset($results)) {
       foreach ($results as $result) {
-        // echo "$result->post_id" . " - " . "$result->membership_area_id<br>";
         $posts["$result->post_id"][] = "$result->membership_area_id";
       }
-    }
-    // echo '<br>POSTS<br>';
-    // var_dump($posts);
-    if(in_array(2, $posts[10])) {
-      // echo 'OK';
     }
     return $posts;
   }
