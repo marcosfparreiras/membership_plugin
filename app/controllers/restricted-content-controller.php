@@ -11,7 +11,7 @@ class Restricted_Content_Controller {
 
   public static function populate($post) {
     Restricted_Content::clear_table();
-    self::add($post);
+    self::save_data($post);
   }
 
   public static function content_data() {
@@ -26,8 +26,7 @@ class Restricted_Content_Controller {
     return Restricted_Content::formated_data();
   }
 
-  public static function add($post) {
-    var_dump($post);
+  public static function save_data($post) {
     if(isset($post['restricted'])) {
       $restricted_posts = $post['restricted'];
       foreach ($restricted_posts as $post_id) {
@@ -45,11 +44,17 @@ class Restricted_Content_Controller {
               $membership_area_id
             );
             Restricted_Content::add($restricted_content);
-            echo $membership_area_id;
           }
         }
       }
     }
+    var_dump(self::get_success_messages());
+  }
+
+  public static function get_success_messages() {
+    $messages = [];
+    $messages[] = "As definições de restrição de conteúdo foram salvas com sucesso";
+    return $messages;
   }
 
 }
