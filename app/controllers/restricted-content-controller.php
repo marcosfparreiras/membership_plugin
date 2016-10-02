@@ -22,13 +22,9 @@ class Restricted_Content_Controller {
     var_dump($post);
     if(isset($post['restricted'])) {
       $restricted_posts = $post['restricted'];
-      echo '<br>';
-      echo "Restricted<br>";
-      var_dump($restricted_posts);
       foreach ($restricted_posts as $post_id) {
         if(isset($post["$post_id"])) {
           foreach ($post["$post_id"] as $membership_area_id) {
-            echo '<br>Memberhsip ids<br>';
             $obj = (object) array(
               'post_id' => $post_id,
               'days_to_release' => 0,
@@ -46,10 +42,6 @@ class Restricted_Content_Controller {
             echo $membership_area_id;
           }
         }
-        echo "<br><br>Postid: $post_id";
-        var_dump($post["$post_id"]);
-        echo "<br>------------<br>";
-
       }
     }
   }
