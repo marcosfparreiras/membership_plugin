@@ -2,7 +2,6 @@
 Restricted_Content_Controller::perform_on_post();
 $index_page = get_site_url() . '/wp-admin/admin.php?page=hm3_restricted_content';
 
-// var_dump($_POST);
 $posts = Restricted_Content_Controller::content_data();
 $membership_areas = Restricted_Content_Controller::membership_areas();
 
@@ -49,14 +48,23 @@ foreach($posts as $post) {
   if (in_array($post_id, $restricted_content_ids)) {
     $checked = 'checked';
   }
-  echo '<td><input type="checkbox" name="restricted[]" value="' . $post_id . '" id="' . $post_id . ' ' . $checked . '"></td>';
+  echo '<td><input type="checkbox" name="restricted[]" value="' . $post_id . '" id="' . $post_id . '" ' . $checked . '></td>';
   foreach($membership_areas as $membership_area) {
     $membership_id = $membership_area->id;
     $membership_name = $membership_area->name;
     $name_tag = 'name="' . $post_id . '[]"';
     $value_tag = 'value="' . $membership_id . '"';
     echo '<td>';
-    echo '<input type="checkbox" ' . $name_tag . ' ' . $value_tag . '">';
+    $membership_checked = '';
+
+
+    if(isset($data_to_load[$post_id])) {
+      if(in_array($membership_id, $data_to_load[$post_id])) {
+        $membership_checked = 'checked';
+      }
+    }
+
+    echo '<input type="checkbox" ' . $name_tag . ' ' . $value_tag . ' ' . $membership_checked . '>';
     // echo '<input type="text" class="content_dripping" />';
     echo '</td>';
   }

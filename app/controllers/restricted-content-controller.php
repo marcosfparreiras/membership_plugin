@@ -9,6 +9,11 @@ class Restricted_Content_Controller {
     }
   }
 
+  public static function populate($post) {
+    Restricted_Content::clear_table();
+    self::add($post);
+  }
+
   public static function content_data() {
     return Content_Retriever::perform();
   }
@@ -19,11 +24,6 @@ class Restricted_Content_Controller {
 
   public static function index() {
     return Restricted_Content::formated_data();
-  }
-
-  public static function populate($post) {
-    Restricted_Content::clear_table();
-    self::add($post);
   }
 
   public static function add($post) {
