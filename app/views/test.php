@@ -17,6 +17,7 @@ echo '<br>';
 // var_dump($r);
 // $r = Roles_Handler::remove_wp_role('hm3_role_1475632772');
 // var_dump($r);
+echo Roles_Handler::new_role_slug();
 
 
 ?>

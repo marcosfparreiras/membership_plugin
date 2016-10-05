@@ -15,7 +15,8 @@ class Membership_Area {
       id INT NOT NULL AUTO_INCREMENT,
       name varchar(55) NOT NULL,
       prod varchar(15) NOT NULL,
-      offer INT NOT NULL,
+      offer varchar(30) DEFAULT NULL,
+      slug varchar(30) DEFAULT NULL,
       PRIMARY KEY  (id)
     );";
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -28,12 +29,14 @@ class Membership_Area {
     $data = array(
       'name' => $membership_area->get_name(),
       'prod' => $membership_area->get_prod(),
-      'offer' => $membership_area->get_offer()
+      'offer' => $membership_area->get_offer(),
+      'slug' => $membership_area->get_slug()
     );
     $format = array(
       '%s',
       '%d',
       '%s',
+      '%s'
     );
     $wpdb->insert( $table, $data, $format );
   }
@@ -44,7 +47,8 @@ class Membership_Area {
     $data = array(
       'name' => $membership_area->get_name(),
       'prod' => $membership_area->get_prod(),
-      'offer' => $membership_area->get_offer()
+      'offer' => $membership_area->get_offer(),
+      'slug' => $membership_area->get_slug()
     );
     $where = array(
       'id' => $membership_area->get_id()
@@ -53,6 +57,7 @@ class Membership_Area {
       '%s',
       '%d',
       '%s',
+      '%s'
     );
     $wpdb->update( $table, $data, $where, $format );
   }
@@ -70,7 +75,8 @@ class Membership_Area {
         $data->id,
         $data->name,
         $data->prod,
-        $data->offer
+        $data->offer,
+        $data->slug
       );
     }
   }
