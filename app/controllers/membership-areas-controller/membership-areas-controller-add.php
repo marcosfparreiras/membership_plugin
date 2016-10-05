@@ -3,9 +3,11 @@ class Membership_Area_Controller_Add {
 
   public static function perform($post) {
     if(self::params_ok($post)) {
+      $role = Roles_Handler::create_wp_role($post['name']);
       $membership = new Membership_Area_Model(
         null,
         $post['name'],
+        $role->name,
         $post['prod']
       );
       Membership_Area::add($membership);

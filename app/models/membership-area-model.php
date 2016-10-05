@@ -5,30 +5,23 @@ class Membership_Area_Model {
   var $prod;
   var $offer;
 
-  function __construct($id, $name, $prod, $offer = '', $slug = '') {
+  function __construct($id, $name, $slug, $prod, $offer = '') {
     $this->id = $id;
     $this->name = $name;
+    $this->slug = $slug;
     $this->prod = $prod;
     $this->offer = $offer;
-    $this->slug = $slug;
   }
 
   public static function with_object($obj) {
     return new self(
       $obj->id,
       $obj->name,
+      $obj->slug,
       $obj->prod,
-      $obj->offer,
-      $obj->slug
+      $obj->offer
     );
   }
-
-  // function __construct($obj) {
-  //   $this->id = $obj->id;
-  //   $this->name = $obj->name;
-  //   $this->prod = $obj->prod;
-  //   $this->offer = $obj->offer;
-  // }
 
   public function get_id(){
     return $this->id;
@@ -36,6 +29,10 @@ class Membership_Area_Model {
 
   public function get_name(){
     return $this->name;
+  }
+
+  public function get_slug(){
+    return $this->slug;
   }
 
   public function get_prod(){
@@ -46,16 +43,16 @@ class Membership_Area_Model {
     return $this->offer;
   }
 
-  public function get_slug(){
-    return $this->slug;
-  }
-
   public function set_id($id) {
     $this->id = $id;
   }
 
   public function set_name($name) {
     $this->name = $name;
+  }
+
+  public function set_slug($slug) {
+    $this->slug = $slug;
   }
 
   public function set_prod($prod) {
@@ -65,10 +62,5 @@ class Membership_Area_Model {
   public function set_offer($offer) {
     $this->offer = $offer;
   }
-
-  public function set_slug($slug) {
-    $this->slug = $slug;
-  }
 }
-
 ?>

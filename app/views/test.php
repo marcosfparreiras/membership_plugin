@@ -14,10 +14,12 @@ echo time();
 
 echo '<br>';
 // $r = Roles_Handler::create_wp_role('Role Exemplo');
-// var_dump($r);
+$r = get_role('hm3_role_1475634059');
+var_dump($r);
+echo '<Br>';
+echo $r->name;
 // $r = Roles_Handler::remove_wp_role('hm3_role_1475632772');
 // var_dump($r);
-echo Roles_Handler::new_role_slug();
 
 
 ?>

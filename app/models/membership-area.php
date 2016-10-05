@@ -34,7 +34,7 @@ class Membership_Area {
     );
     $format = array(
       '%s',
-      '%d',
+      '%s',
       '%s',
       '%s'
     );
@@ -55,7 +55,7 @@ class Membership_Area {
     );
     $format = array(
       '%s',
-      '%d',
+      '%s',
       '%s',
       '%s'
     );
