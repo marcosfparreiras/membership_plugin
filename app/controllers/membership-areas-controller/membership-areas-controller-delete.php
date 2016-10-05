@@ -5,6 +5,8 @@ class Membership_Area_Controller_Delete {
     if(self::params_ok($post)) {
       $membership = Membership_Area::find($post['id']);
       Membership_Area::delete($membership);
+      $slug = $membership->get_slug();
+      Roles_Handler::remove_wp_role($slug);
       var_dump(self::get_success_messages($post));
     }
     else {

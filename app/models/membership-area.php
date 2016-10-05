@@ -74,9 +74,9 @@ class Membership_Area {
       return new Membership_Area_Model(
         $data->id,
         $data->name,
+        $data->slug,
         $data->prod,
-        $data->offer,
-        $data->slug
+        $data->offer
       );
     }
   }
