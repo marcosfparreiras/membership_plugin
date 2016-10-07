@@ -7,6 +7,7 @@ class Membership_Area_Controller_Update {
       $membership->set_name($post['name']);
       $membership->set_prod($post['prod']);
       Membership_Area::update($membership);
+      Roles_Handler::update_wp_role($membership->slug, $post['name']);
       var_dump(self::get_success_messages($post));
     }
     else {
