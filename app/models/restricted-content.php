@@ -65,6 +65,13 @@ class Restricted_Content {
     return $posts;
   }
 
+  public static function find_by_post_id($post_id) {
+    global $wpdb;
+    $table_name = self::table_name();
+    $sql = "SELECT * from $table_name WHERE post_id = '$post_id';";
+    return $wpdb->get_results($sql);
+  }
+
 }
 
 ?>
