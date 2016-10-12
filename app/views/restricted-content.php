@@ -27,6 +27,7 @@ function restricted_content_header($membership_areas) {
   <h1>Conteúdo Restrito</h1>
   <br>
   Defina quais conteúdos você deseja que sejam restritos para cada uma das suas áreas de membros.
+  <br><br>
   <form action="" method="post">
     <table class="wp-list-table widefat fixed striped posts">
       <thead>
