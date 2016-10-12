@@ -9,11 +9,7 @@ class Assets_Manager {
     wp_enqueue_script(
       'hm3-scripts',
       HOTMEMBERS3_ASSETS_URL . '/javascripts/ex.js',
-      array('hm2-jq')
-    );
-    wp_enqueue_script(
-      'hm2-jq',
-      HOTMEMBERS3_ASSETS_URL . '/javascripts/hm2-jquery.js'
+      array('jquery')
     );
   }
 
