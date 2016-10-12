@@ -16,8 +16,8 @@ class Content_Retriever {
 
   public static function get_post_types_names() {
     $post_types = get_post_types();
-    return $post_types;
-    // return array_keys($post_types);
+    $removed_post_types = ['nav_menu_item'];
+    return array_diff($post_types, $removed_post_types);
   }
 
   public static function get_posts_data($post_type) {
