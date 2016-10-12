@@ -47,15 +47,15 @@ class Restricted_Content {
     $wpdb->query($sql);
   }
 
-  public static function get() {
+  public static function get_all() {
     global $wpdb;
     $table_name = self::table_name();
-    $sql = "SELECT post_id, membership_area_id from $table_name;";
+    $sql = "SELECT * from $table_name;";
     return $wpdb->get_results($sql);
   }
 
   public static function formated_data() {
-    $results = self::get();
+    $results = self::get_all();
     $posts = [];
     if(isset($results)) {
       foreach ($results as $result) {

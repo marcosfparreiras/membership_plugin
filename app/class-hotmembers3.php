@@ -3,6 +3,7 @@ class Hotmembers3 {
   function __construct() {
     $this->add_menus();
     $this->add_assets();
+    $this->add_header();
   }
 
   // Add plugin menu pages
@@ -12,6 +13,10 @@ class Hotmembers3 {
 
   public function add_assets() {
     add_action( 'admin_enqueue_scripts', array('Assets_Manager', 'add_assets') );
+  }
+
+  public function add_header() {
+    add_action('wp_head', array('Content_Access_Manager', 'test') );
   }
 
   // Method used on register_activation_hook
