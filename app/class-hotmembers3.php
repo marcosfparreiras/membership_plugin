@@ -4,6 +4,7 @@ class Hotmembers3 {
     $this->add_menus();
     $this->add_assets();
     $this->add_header();
+    $this->filter_content();
   }
 
   // Add plugin menu pages
@@ -16,7 +17,11 @@ class Hotmembers3 {
   }
 
   public function add_header() {
-    add_action('wp_head', array('Content_Access_Manager', 'test') );
+    // add_action('wp_head', array('Content_Access_Manager', 'test') );
+  }
+
+  public function filter_content() {
+    add_filter( 'the_content', array('Content_Access_Manager', 'filter_content') );
   }
 
   // Method used on register_activation_hook
