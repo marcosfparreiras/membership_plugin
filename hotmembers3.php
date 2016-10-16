@@ -37,9 +37,11 @@ include( HOTMEMBERS3_LIB_PATH . '/assets-manager.php');
 include( HOTMEMBERS3_LIB_PATH . '/content-retriever.php');
 include( HOTMEMBERS3_LIB_PATH . '/roles-handler.php');
 include( HOTMEMBERS3_LIB_PATH . '/content-access-manager.php');
+include( HOTMEMBERS3_LIB_PATH . '/handlers/hotmembers-connect.php');
 
 include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
+new Hotmembers3\HotmembersConnect();
 
 register_activation_hook( __FILE__, array( 'Hotmembers3', 'on_activate' ) );
 
