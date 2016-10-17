@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Roles_Handler {
   const ROLE_PREFIX = 'hm3_role_';
 

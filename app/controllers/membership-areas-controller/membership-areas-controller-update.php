@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Membership_Area_Controller_Update {
 
   public static function perform($post) {

@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 $index_page = get_site_url() . '/wp-admin/admin.php?page=hm3_main_menu';
 ?>
 <html>

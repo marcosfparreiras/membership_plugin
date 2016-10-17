@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 Membership_Areas_Controller::perform_on_post();
 ?>
 
