@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 require_once __DIR__ . '/membership-area-model.php';
 
 class Membership_Area {
@@ -91,6 +92,24 @@ class Membership_Area {
       '%d',
     );
     $wpdb->delete( $table, $where, $format );
+  }
+
+  public static function where($opts) {
+    global $wpdb;
+    $table_name = self::table_name();
+    $fields = "1";
+    foreach($opts as $key => $value) {
+      $fields .= " AND $key = $value";
+    }
+    $sql = "SELECT * from $table_name WHERE $fields;";
+    return $wpdb->get_results($sql);
+  }
+
+  public static function find_by_prod($prod_id) {
+    $opts = array(
+      'prod' => 111
+    );
+    return self::where($opts);
   }
 }
 

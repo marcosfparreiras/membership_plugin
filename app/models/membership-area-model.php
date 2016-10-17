@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Membership_Area_Model {
   var $id;
   var $name;

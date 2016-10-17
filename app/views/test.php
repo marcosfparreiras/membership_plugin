@@ -1,10 +1,21 @@
 <?php
-$roles = get_editable_roles();
-var_dump(array_keys($roles));
-// var_dump($roles);
+$status = 'approved';
+// $status = 'refunded';
+// $hottok '';
+$email = 'marcosfparreiras@gmail.com.brkk';
+$first_name = 'Teste';
+$last_name = 'Sobre';
+$prod = '111';
 
-// $role_slug = 'Area0011';
-// remove_role( $role_slug )
+$post = array(
+  'status' => $status,
+  'email' => $email,
+  'first_name' => $first_name,
+  'last_name' => $last_name,
+  'prod' => $prod
+);
+
+Hotmembers3\HotmembersConnectHotmart::act($post);
 
 ?>
 
