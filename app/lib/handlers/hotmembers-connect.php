@@ -1,7 +1,7 @@
 <?php
 namespace Hotmembers3;
 include_once( 'hotmembers-connect-hotmart.php' );
-// include_once( 'hotmembers_connect_eduzz.php' );
+include_once( 'hotmembers_connect_eduzz.php' );
 class HotmembersConnect{
 
   /** Hook WordPress
@@ -59,13 +59,11 @@ class HotmembersConnect{
     $connect = $wp->query_vars['connect'];
 
     if ($connect == 'hotmart') {
-      // $act_response = HotmembersConnectHotmart::act();
-      $act_response = 'aa';
+      $act_response = HotmembersConnectHotmart::act($_POST);
       $this->send_response($act_response);
     }
     elseif ($connect == 'eduzz') {
-      // $act_response = HotmembersConnectEduzz::act();
-      $act_response = 'aa';
+      $act_response = HotmembersConnectEduzz::act($_POST);
       $this->send_response($act_response);
     }
     else {
