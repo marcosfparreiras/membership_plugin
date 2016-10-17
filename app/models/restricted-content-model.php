@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Restricted_Content_Model {
   var $id;
   var $post_id;

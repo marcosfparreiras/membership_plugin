@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 ?>
 
 <html>

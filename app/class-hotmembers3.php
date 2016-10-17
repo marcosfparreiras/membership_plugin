@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Hotmembers3 {
   function __construct() {
     $this->add_menus();
@@ -9,11 +10,11 @@ class Hotmembers3 {
 
   // Add plugin menu pages
   public function add_menus() {
-    add_action( 'admin_menu', array( 'Admin_Pages_Creator', 'create_pages') );
+    add_action( 'admin_menu', array( 'Hotmembers3\Admin_Pages_Creator', 'create_pages') );
   }
 
   public function add_assets() {
-    add_action( 'admin_enqueue_scripts', array('Assets_Manager', 'add_assets') );
+    add_action( 'admin_enqueue_scripts', array('Hotmembers3\Assets_Manager', 'add_assets') );
   }
 
   public function add_header() {
@@ -21,7 +22,7 @@ class Hotmembers3 {
   }
 
   public function filter_content() {
-    add_filter( 'the_content', array('Content_Access_Manager', 'filter_content') );
+    add_filter( 'the_content', array('Hotmembers3\Content_Access_Manager', 'filter_content') );
   }
 
   // Method used on register_activation_hook

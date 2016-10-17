@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 Restricted_Content_Controller::perform_on_post();
 
 $index_page = get_site_url() . '/wp-admin/admin.php?page=hm3_restricted_content';

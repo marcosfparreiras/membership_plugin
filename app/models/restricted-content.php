@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 require_once __DIR__ . '/restricted-content-model.php';
 
 class Restricted_Content {

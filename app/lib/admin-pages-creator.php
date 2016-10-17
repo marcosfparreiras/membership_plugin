@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Admin_Pages_Creator {
 
   public static function create_pages() {
@@ -7,7 +8,7 @@ class Admin_Pages_Creator {
     // Define plugin sidebar menu
     add_menu_page( 'Hotmembers 3.0', 'Hotmembers 3.0', 'manage_options', 'hm3_main_menu', array(self::class, 'main_menu'), $icon, 98 );
     add_submenu_page( 'hm3_main_menu', 'Áreas de Membros', 'Áreas de Membros', 'manage_options', 'hm3_main_menu', array(self::class, 'membership_areas_index') );
-    add_submenu_page( 'hm3_main_menu', 'Conteúdo Restrito', 'Conteúdo Restrito', 'manage_options', 'hm3_restricted_content', array('Admin_Pages_Creator', 'restricted_content') );
+    add_submenu_page( 'hm3_main_menu', 'Conteúdo Restrito', 'Conteúdo Restrito', 'manage_options', 'hm3_restricted_content', array(self::class, 'restricted_content') );
     add_submenu_page( 'hm3_main_menu', 'Configurações', 'Configurações', 'manage_options', 'hm3_settings', array(self::class, 'settings') );
     add_submenu_page( 'hm3_main_menu', 'Ajuda', 'Ajuda', 'manage_options', 'hm3_help', array(self::class, 'help') );
 

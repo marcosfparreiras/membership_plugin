@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Content_Access_Manager {
 
   public static function filter_content($content) {

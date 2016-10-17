@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Content_Retriever {
 
   public static function perform() {

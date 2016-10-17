@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Restricted_Content_Controller {
 
   public static function perform_on_post() {

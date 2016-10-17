@@ -1,4 +1,5 @@
 <?php
+namespace Hotmembers3;
 class Assets_Manager {
   public static function add_assets() {
     self::add_scripts();

@@ -1,4 +1,6 @@
 <?php
+namespace Hotmembers3;
+
 $status = 'approved';
 // $status = 'refunded';
 // $hottok '';
@@ -15,7 +17,7 @@ $post = array(
   'prod' => $prod
 );
 
-Hotmembers3\HotmembersConnectHotmart::act($post);
+HotmembersConnectHotmart::act($post);
 
 ?>
 
