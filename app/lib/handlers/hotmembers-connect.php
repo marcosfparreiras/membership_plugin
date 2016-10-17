@@ -1,8 +1,8 @@
 <?php
 namespace Hotmembers3;
 include_once( 'hotmembers-connect-hotmart.php' );
-include_once( 'hotmembers_connect_eduzz.php' );
-class HotmembersConnect{
+include_once( 'hotmembers-connect-eduzz.php' );
+class HotmembersConnect {
 
   /** Hook WordPress
   * @return void

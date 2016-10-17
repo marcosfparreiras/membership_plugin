@@ -1,58 +1,44 @@
 <?php
 namespace Hotmembers3;
-class HotmembersConnectHotmart{
+include_once( 'helpers/hotmembers-connect-user-helper.php' );
+class HotmembersConnectHotmart {
   /** Request Handler
   * This uses the $POST values to handle hotmart POST connection
   */
   public static function act($post) {
-    $status = $post['status'];
-    // $hottok = $post['hottok'];
-    $email = $post['email'];
-    $first_name = $post['first_name'];
-    $last_name = $post['last_name'];
-    $prod = $post['prod'];
-    // $transaction = $post['transaction'];
-
     $opts = array(
-      'prod' => $prod
+      // 'hottok' => $post['hottok'],
+      // 'transaction' => $post['transaction'],
+      'status' => $post['status'],
+      'email' => $post['email'],
+      'first_name' => $post['first_name'],
+      'last_name' => $post['last_name'],
+      'prod' => $post['prod']
+    );
+
+    $search_opts = array(
+      'prod' => $opts['prod']
       // 'hottok' => $hottok
     );
-    $memberships = Membership_Area::where($opts);
+
+    $memberships = Membership_Area::where($search_opts);
     if(count($memberships) == 0) {
       echo "<br>no membership area found for specification";
       return;
     }
+
+    $opts = $post;
     foreach ($memberships as $membership) {
+      $opts['role_slug'] = $membership->slug;
       echo "<br>Membership_Area name: $membership->name";
-      if (self::is_status_to_add($status)) {
-        echo "<br>status is to add";
-        $user = get_user_by('email', $email );
-        if ($user) {
-          echo "<br>user exists on create";
-          $user->add_role($membership->slug);
-        }
-        else {
-          echo "<br>user does not exist";
-          $pass = wp_generate_password(8, false);
-          $userdata = array(
-            'user_pass' =>  $pass,
-            'user_login' => $email,
-            'user_email' => $email,
-            'first_name' => $first_name,
-            'last_name'  => $last_name,
-            'role' => $membership->slug
-          );
-          wp_insert_user( $userdata );
-          // Send email to user with
-        }
+      if (self::is_status_to_add($opts['status'])) {
+        $user_helper = new HotmembersConnectUserHelper($opts);
+        $user_helper->add_wp_user();
       }
-      elseif(self::is_status_to_remove($status)) {
+      elseif(self::is_status_to_remove($opts['status'])) {
         echo "<br>status is to remove";
-        $user = get_user_by('email', $email );
-        if($user) {
-          echo "<br>user exists on remove role";
-          $user->remove_role($membership->slug);
-        }
+        $user_helper = new HotmembersConnectUserHelper($opts);
+        $user_helper->delete_wp_user();
       }
     }
   }
