@@ -1,18 +1,16 @@
 <?php
 namespace Hotmembers3;
-include_once( 'helpers/hotmembers-connect-user-helper.php' );
 class HotmembersConnectHotmart {
   /** Request Handler
   * This uses the $POST values to handle hotmart POST connection
   */
   public static function act($post) {
     $opts = self::get_opts_from_post($post);
-    $memberships = self::get_memberships($post);
+    $memberships = self::get_memberships($opts);
     if(count($memberships) == 0) {
       return "No membership area found for specification";
     }
 
-    $opts = $post;
     foreach ($memberships as $membership) {
       self::handle_opts_for_membership($opts, $membership);
     }
@@ -20,13 +18,12 @@ class HotmembersConnectHotmart {
 
   private static function handle_opts_for_membership($opts, $membership) {
     $opts['role_slug'] = $membership->slug;
+    $user_helper = new HotmembersConnectUserHelper($opts);
     if (self::is_status_to_add($opts['status'])) {
-      $user_helper = new HotmembersConnectUserHelper($opts);
       $user_helper->add_wp_user();
       return 'User added';
     }
     elseif(self::is_status_to_remove($opts['status'])) {
-      $user_helper = new HotmembersConnectUserHelper($opts);
       $user_helper->delete_wp_user();
       return 'User deleted';
     }

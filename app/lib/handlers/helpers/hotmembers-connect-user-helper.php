@@ -28,7 +28,10 @@ class HotmembersConnectUserHelper {
   }
 
   public function delete_wp_user() {
-    $this->user->remove_role($this->role_slug);
+    $user = get_user_by('email', $this->email);
+    if ($user) {
+      $this->user->remove_role($this->role_slug);
+    }
   }
 
   private function add_role_to_existing_user() {

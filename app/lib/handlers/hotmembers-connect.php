@@ -1,5 +1,6 @@
 <?php
 namespace Hotmembers3;
+include_once( 'helpers/hotmembers-connect-user-helper.php' );
 include_once( 'hotmembers-connect-hotmart.php' );
 include_once( 'hotmembers-connect-eduzz.php' );
 class HotmembersConnect {
