@@ -9,7 +9,9 @@ class Membership_Area_Controller_Add {
         null,
         $post['name'],
         $role->name,
-        $post['prod']
+        $post['prod'],
+        $post['token'],
+        $post['periodicity_value']
       );
       Membership_Area::add($membership);
       var_dump(self::get_success_messages($post));
@@ -23,7 +25,8 @@ class Membership_Area_Controller_Add {
     if( isset($post['name']) &&
           isset($post['prod']) &&
           $post['name'] != null &&
-          $post['prod'] != null
+          $post['prod'] != null &&
+          $post['periodicity_value'] != NULL
     ) {
       return true;
     }
@@ -39,6 +42,9 @@ class Membership_Area_Controller_Add {
     };
     if($post['prod'] == null) {
       $messages[] = "O campo Produto não pode ficar vazio.";
+    };
+    if($post['periodicity_value'] == null) {
+      $messages[] = "O campo Periodicidade não pode ficar vazio.";
     };
     return $messages;
   }

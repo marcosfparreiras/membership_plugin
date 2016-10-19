@@ -7,7 +7,7 @@ class Membership_Area_Model {
   var $offer;
 
   function __construct($id, $name, $slug, $prod, $token, $periodicity_value,
-                       $periodicity_magnitude,  $offer = '') {
+                       $periodicity_magnitude = 'month',  $offer = '') {
     $this->id = $id;
     $this->name = $name;
     $this->slug = $slug;

@@ -7,6 +7,8 @@ class Membership_Area_Controller_Update {
       $membership = Membership_Area::find($post['id']);
       $membership->set_name($post['name']);
       $membership->set_prod($post['prod']);
+      $membership->set_token($post['token']);
+      $membership->set_periodicity_value($post['periodicity_value']);
       Membership_Area::update($membership);
       Roles_Handler::update_wp_role($membership->slug, $post['name']);
       var_dump(self::get_success_messages($post));
