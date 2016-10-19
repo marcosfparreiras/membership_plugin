@@ -72,7 +72,4 @@ class Restricted_Content {
     $sql = "SELECT * from $table_name WHERE post_id = '$post_id';";
     return $wpdb->get_results($sql);
   }
-
 }
-
-?>

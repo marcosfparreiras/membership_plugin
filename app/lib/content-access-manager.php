@@ -57,4 +57,3 @@ class Content_Access_Manager {
     return $membership_area->slug;
   }
 }
-?>

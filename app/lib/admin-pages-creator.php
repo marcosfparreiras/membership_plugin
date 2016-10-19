@@ -55,5 +55,3 @@ class Admin_Pages_Creator {
     include(HOTMEMBERS3_VIEWS_PATH  . "/membership-areas/delete.php");
   }
 }
-
-?>

@@ -54,5 +54,3 @@ class Restricted_Content_Model {
     $this->membership_area_id = $membership_area_id;
   }
 }
-
-?>

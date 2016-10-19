@@ -60,4 +60,3 @@ class HotmembersConnectEduzz {
     return in_array($status, $status_to_remove);
   }
 }
-?>

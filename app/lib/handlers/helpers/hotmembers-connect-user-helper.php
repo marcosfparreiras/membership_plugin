@@ -52,4 +52,3 @@ class HotmembersConnectUserHelper {
     wp_insert_user($userdata);
   }
 }
-?>
