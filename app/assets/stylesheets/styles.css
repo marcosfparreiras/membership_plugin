@@ -5,3 +5,7 @@ p {
 .content_dripping {
   width: 40px;
 }
+
+td.rescued {
+  padding:0 15px 0 15px;
+}

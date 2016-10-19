@@ -12,7 +12,9 @@ Membership_Areas_Controller::perform_on_post();
   <table class="wp-list-table widefat fixed striped posts">
     <thead>
       <td>Nome</td>
+      <td>Periodicidade</td>
       <td>Produto</td>
+      <td>Token</td>
     </thead>
     <tbody>
 
@@ -24,6 +26,8 @@ foreach($membership_areas as $membership){
   $id = $membership->id;
   $name = $membership->name;
   $prod = $membership->prod;
+  $token = $membership->token;
+  $periodicity_value = $membership->periodicity_value;
 
   $edit_url = $base_url . "page=hm3_membership_areas_update&id=$id";
   $delete_url = $base_url . "page=hm3_membership_areas_delete&id=$id";
@@ -38,7 +42,9 @@ foreach($membership_areas as $membership){
   echo $actions_line;
   echo "</td>";
   // echo "<td><a href='$url'>$name</a><br>Test</td>";
+  echo "<td>$periodicity_value mês/meses</td>";
   echo "<td>$prod</td>";
+  echo "<td>$token</td>";
   echo "</tr>";
 }
 

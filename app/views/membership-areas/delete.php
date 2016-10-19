@@ -12,15 +12,19 @@ $membership_area = Membership_Areas_Controller::delete($_GET);
     <table>
       <tr>
         <td ><b>Nome</b></td>
-        <td style="padding:0 15px 0 15px;"><?php echo $membership_area->name ?></td>
+        <td class="rescued"><?php echo $membership_area->name ?></td>
       </tr>
       <tr>
         <td><b>ID do Produto</b></td>
-        <td style="padding:0 15px 0 15px;"><?php echo $membership_area->prod ?></td>
+        <td class="rescued"><?php echo $membership_area->prod ?></td>
       </tr>
       <tr>
         <td><b>Token</b></td>
-        <td style="padding:0 15px 0 15px;"></td>
+        <td class="rescued"><?php echo $membership_area->token ?></td>
+      </tr>
+      <tr>
+        <td><b>Periodicidade</b></td>
+        <td class="rescued"><?php echo $membership_area->periodicity_value ?> mês/meses</td>
       </tr>
     </table>
     <br>
