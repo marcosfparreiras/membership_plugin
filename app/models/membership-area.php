@@ -18,6 +18,9 @@ class Membership_Area {
       prod varchar(15) NOT NULL,
       offer varchar(30) DEFAULT NULL,
       slug varchar(30) DEFAULT NULL,
+      token varchar(50),
+      periodicity_value INT DEFAULT 0,
+      periodicity_magnitude varchar(10) DEFAULT NULL,
       PRIMARY KEY  (id)
     );";
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -31,12 +34,18 @@ class Membership_Area {
       'name' => $membership_area->get_name(),
       'prod' => $membership_area->get_prod(),
       'offer' => $membership_area->get_offer(),
-      'slug' => $membership_area->get_slug()
+      'slug' => $membership_area->get_slug(),
+      'token' => $membership_area->get_token(),
+      'periodicity_value' => $membership_area->get_periodicity_value(),
+      'periodicity_magnitude' => $membership_area->get_periodicity_magnitude()
     );
     $format = array(
       '%s',
       '%s',
       '%s',
+      '%s',
+      '%s',
+      '%d',
       '%s'
     );
     $wpdb->insert( $table, $data, $format );
@@ -49,7 +58,10 @@ class Membership_Area {
       'name' => $membership_area->get_name(),
       'prod' => $membership_area->get_prod(),
       'offer' => $membership_area->get_offer(),
-      'slug' => $membership_area->get_slug()
+      'slug' => $membership_area->get_slug(),
+      'token' => $membership_area->get_token(),
+      'periodicity_value' => $membership_area->get_periodicity_value(),
+      'periodicity_magnitude' => $membership_area->get_periodicity_magnitude()
     );
     $where = array(
       'id' => $membership_area->get_id()
@@ -58,6 +70,9 @@ class Membership_Area {
       '%s',
       '%s',
       '%s',
+      '%s',
+      '%s',
+      '%d',
       '%s'
     );
     $wpdb->update( $table, $data, $where, $format );
@@ -77,6 +92,9 @@ class Membership_Area {
         $data->name,
         $data->slug,
         $data->prod,
+        $data->token,
+        $data->periodicity_value,
+        $data->periodicity_magnitude,
         $data->offer
       );
     }
@@ -112,5 +130,3 @@ class Membership_Area {
     return self::where($opts);
   }
 }
-
-?>

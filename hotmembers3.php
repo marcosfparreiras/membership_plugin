@@ -45,7 +45,6 @@ include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
 new HotmembersConnect();
 
-register_activation_hook( __FILE__, array( 'Hotmembers3\HotmembersConnect', 'flush_new_endpoint' ) );
+register_activation_hook( __FILE__, array( 'HotmembersConnect', 'flush_new_endpoint' ) );
 register_activation_hook( __FILE__, array( 'Hotmembers3', 'on_activate' ) );
-
 ?>

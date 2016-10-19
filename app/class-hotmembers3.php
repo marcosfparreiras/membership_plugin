@@ -36,5 +36,3 @@ class Hotmembers3 {
     Restricted_Content::create_table();
   }
 }
-
-?>
