@@ -22,9 +22,13 @@ class Membership_Area_Controller_Update {
     if( isset($post['name']) &&
           isset($post['prod']) &&
           isset($post['id']) &&
+          isset($post['token']) &&
+          isset($post['periodicity_value']) &&
           $post['name'] != null &&
           $post['prod'] != null &&
-          $post['id'] != null
+          $post['id'] != null &&
+          $post['token'] != null &&
+          is_numeric($post['periodicity_value'])
     ) {
       return true;
     }
@@ -37,10 +41,24 @@ class Membership_Area_Controller_Update {
     $messages = [];
     if($post['name'] == null) {
       $messages[] = "O campo Nome não pode ficar vazio.";
-    };
+    }
     if($post['prod'] == null) {
       $messages[] = "O campo Produto não pode ficar vazio.";
-    };
+    }
+    if($post['token'] == null) {
+      $messages[] = "O campo Token não pode ficar vazio.";
+    }
+    if($post['periodicity_value'] == null) {
+      $messages[] = "O campo Periodicidade não pode ficar vazio.";
+    }
+    else {
+      if(!is_numeric($post['periodicity_value'])) {
+        $messages[] = "O campo Periodicidade deve ser um número.";
+      }
+      elseif($post['periodicity_value'] < 0) {
+        $messages[] = "O campo Periodicidade deve ser positivo.";
+      }
+    }
     return $messages;
   }
 
