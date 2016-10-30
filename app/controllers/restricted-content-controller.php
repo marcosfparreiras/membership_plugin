@@ -28,6 +28,7 @@ class Restricted_Content_Controller {
   }
 
   public static function save_data($post) {
+    $notices = [];
     if(isset($post['restricted'])) {
       $restricted_posts = $post['restricted'];
       foreach ($restricted_posts as $post_id) {
@@ -48,8 +49,11 @@ class Restricted_Content_Controller {
           }
         }
       }
+      $notices = array( 'success' => self::get_success_messages() );
     }
-    var_dump(self::get_success_messages());
+    $notices = array( 'success' => self::get_success_messages() );
+    $admin_notices_handler = new Admin_Notices_Handler($notices);
+    $admin_notices_handler->display();
   }
 
   public static function get_success_messages() {
