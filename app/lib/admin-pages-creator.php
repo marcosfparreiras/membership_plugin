@@ -9,6 +9,7 @@ class Admin_Pages_Creator {
     add_menu_page( 'Hotmembers 3.0', 'Hotmembers 3.0', 'manage_options', 'hm3_main_menu', array(self::class, 'main_menu'), $icon, 98 );
     add_submenu_page( 'hm3_main_menu', 'Áreas de Membros', 'Áreas de Membros', 'manage_options', 'hm3_main_menu', array(self::class, 'membership_areas_index') );
     add_submenu_page( 'hm3_main_menu', 'Conteúdo Restrito', 'Conteúdo Restrito', 'manage_options', 'hm3_restricted_content', array(self::class, 'restricted_content') );
+    add_submenu_page( 'hm3_main_menu', 'Importar Usuários', 'Importar Usuários', 'manage_options', 'hm3_import_users', array(self::class, 'import_users') );
     add_submenu_page( 'hm3_main_menu', 'Configurações', 'Configurações', 'manage_options', 'hm3_settings', array(self::class, 'settings') );
     add_submenu_page( 'hm3_main_menu', 'Ajuda', 'Ajuda', 'manage_options', 'hm3_help', array(self::class, 'help') );
 
@@ -37,6 +38,10 @@ class Admin_Pages_Creator {
 
   public static function restricted_content() {
     include(HOTMEMBERS3_VIEWS_PATH  . "/restricted-content.php");
+  }
+
+  public static function import_users() {
+    include(HOTMEMBERS3_VIEWS_PATH  . "/import-users.php");
   }
 
   public static function help() {

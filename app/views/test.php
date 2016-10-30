@@ -1,5 +1,7 @@
 <?php
 namespace Hotmembers3;
+// $importer = new CSV_Users_Importer('../../example.csv');
+// $importer->perform();
 
 // $status = 'approved';
 // // $status = 'refunded';
@@ -19,7 +21,7 @@ namespace Hotmembers3;
 
 // HotmembersConnectHotmart::act($post);
 // print_r(get_declared_classes());
-Membership_Area::create_table();
+// Membership_Area::create_table();
 ?>
 
 <html>

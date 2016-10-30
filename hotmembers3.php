@@ -32,6 +32,7 @@ include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership-areas-controller-delete.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership-areas-controller-update.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/restricted-content-controller.php');
+include( HOTMEMBERS3_CONTROLLERS_PATH . '/import-users-controller.php');
 
 # include libs
 include( HOTMEMBERS3_LIB_PATH . '/admin-pages-creator.php');
@@ -41,6 +42,7 @@ include( HOTMEMBERS3_LIB_PATH . '/roles-handler.php');
 include( HOTMEMBERS3_LIB_PATH . '/content-access-manager.php');
 include( HOTMEMBERS3_LIB_PATH . '/handlers/hotmembers-connect.php');
 include( HOTMEMBERS3_LIB_PATH . '/admin-notices/admin-notices-handler.php');
+include( HOTMEMBERS3_LIB_PATH . '/csv-users-importer.php');
 include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
 new HotmembersConnect();
