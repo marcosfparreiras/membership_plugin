@@ -14,18 +14,27 @@ class CSV_Users_Importer {
 
   public function perform() {
     $file_handle = fopen($this->file_name, 'r');
-    $data = [];
-    $i = 0;
     $header = fgetcsv($file_handle, 1024, ';');
-    while (!feof($file_handle)) {
-      $line = fgetcsv($file_handle, 1024, ';');
-      $transaction = $line[self::TRANSACTION_INDEX];
-      $date = $line[self::PAYMENT_CONFIRMATION_DATE];
-      $name = $line[self::NAME_INDEX];
-      $email = $line[self::EMAIL_INDEX];
-
-      echo $transaction . ' - ' . $date . ' - ' . $name . ' - ' . $email . '<br>';
+    while ($line = fgetcsv($file_handle, 1024, ';')) {
+      $this->parse_line($line);
     }
     fclose($file_handle);
+  }
+
+  private function parse_line($line) {
+    $transaction = $line[self::TRANSACTION_INDEX];
+    $payment_date = $line[self::PAYMENT_CONFIRMATION_DATE];
+    $formated_date = $this->date_formater($payment_date);
+    $name = $line[self::NAME_INDEX];
+    $email = $line[self::EMAIL_INDEX];
+
+    echo $transaction . ' - ' . $formated_date . ' - ' . $name . ' - ' . $email . '<br>';
+    // CREATE_USER($email, $name, $formated_date, $transaction);
+  }
+
+  private function date_formater($payment_date) {
+    // $date = \DateTime::createFromFormat('d/m/Y H:i', '25/10/2016 17:45');
+    $date = \DateTime::createFromFormat('d/m/Y H:i', $payment_date);
+    return $date->format('Y-m-d');
   }
 }

@@ -1,6 +1,6 @@
 <?php
 namespace Hotmembers3;
-Impor_Users_Controller::perform_on_post();
+Import_Users_Controller::perform_on_post();
 ?>
 
 <html>
