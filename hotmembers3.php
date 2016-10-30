@@ -40,6 +40,7 @@ include( HOTMEMBERS3_LIB_PATH . '/content-retriever.php');
 include( HOTMEMBERS3_LIB_PATH . '/roles-handler.php');
 include( HOTMEMBERS3_LIB_PATH . '/content-access-manager.php');
 include( HOTMEMBERS3_LIB_PATH . '/handlers/hotmembers-connect.php');
+include( HOTMEMBERS3_LIB_PATH . '/admin-notices/admin-notices-handler.php');
 include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
 new HotmembersConnect();
