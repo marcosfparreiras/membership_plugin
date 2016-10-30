@@ -3,21 +3,22 @@ namespace Hotmembers3;
 class Membership_Areas_Controller {
 
   public static function perform_on_post() {
+    $notices = [];
     if( isset($_POST['method'])) {
       switch ($_POST['method']) {
         case 'add':
           echo 'ADD';
-          Membership_Area_Controller_Add::perform($_POST);
+          $notices = Membership_Area_Controller_Add::perform($_POST);
           break;
 
         case 'update':
           echo 'UPDATE';
-          Membership_Area_Controller_Update::perform($_POST);
+          $notices = Membership_Area_Controller_Update::perform($_POST);
           break;
 
         case 'delete':
           echo 'DELETE';
-          Membership_Area_Controller_Delete::perform($_POST);
+          $notices = Membership_Area_Controller_Delete::perform($_POST);
           break;
 
         default:
@@ -28,6 +29,8 @@ class Membership_Areas_Controller {
     else {
       echo 'NO METHOD SET';
     }
+    $admin_notices_handler = new Admin_Notices_Handler($notices);
+    $admin_notices_handler->display();
   }
 
   public static function index() {

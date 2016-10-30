@@ -8,10 +8,10 @@ class Membership_Area_Controller_Delete {
       Membership_Area::delete($membership);
       $slug = $membership->get_slug();
       Roles_Handler::remove_wp_role($slug);
-      var_dump(self::get_success_messages($post));
+      return array( 'success' => self::get_success_messages($post) );
     }
     else {
-      var_dump(self::get_error_messages($post));
+      return array( 'error' => self::get_error_messages($post) );
     }
   }
 
@@ -37,7 +37,7 @@ class Membership_Area_Controller_Delete {
   public static function get_error_messages($post) {
     $messages = [];
     $id = $post['id'];
-    $messages[] = "A área de membros de id $id não foi existe";
+    $messages[] = "A área de membros de id $id não existe";
     return $messages;
   }
 }

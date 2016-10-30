@@ -6,11 +6,12 @@ class Hotmembers3 {
     $this->add_assets();
     // $this->add_header();
     $this->filter_content();
-    $this->add_admin_notices();
+    // $this->add_admin_notices();
   }
 
   public function add_admin_notices() {
-    add_action( 'admin_notices', array( 'Hotmembers3\Admin_Notices_Handler', 'display') );
+    // add_action( 'admin_notices', array( 'Hotmembers3\Admin_Notices_Handler', 'display') );
+    // add_action( 'admin_notices', array( 'Hotmembers3\Membership_Areas_Controller', 'perform_on_post') );
   }
 
   // Add plugin menu pages

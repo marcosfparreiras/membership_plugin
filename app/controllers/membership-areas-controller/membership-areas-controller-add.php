@@ -14,10 +14,10 @@ class Membership_Area_Controller_Add {
         $post['periodicity_value']
       );
       Membership_Area::add($membership);
-      var_dump(self::get_success_messages($post));
+      return array( 'success' => self::get_success_messages($post) );
     }
     else {
-      var_dump(self::get_error_messages($post));
+      return array( 'error' => self::get_error_messages($post) );
     }
   }
 
