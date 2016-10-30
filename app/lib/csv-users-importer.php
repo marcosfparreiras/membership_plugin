@@ -14,11 +14,15 @@ class CSV_Users_Importer {
 
   public function perform() {
     $file_handle = fopen($this->file_name, 'r');
+    if(!$file_handle) {
+      return false;
+    }
     $header = fgetcsv($file_handle, 1024, ';');
     while ($line = fgetcsv($file_handle, 1024, ';')) {
       $this->parse_line($line);
     }
     fclose($file_handle);
+    return true;
   }
 
   private function parse_line($line) {

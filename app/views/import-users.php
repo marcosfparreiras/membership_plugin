@@ -13,6 +13,7 @@ Import_Users_Controller::perform_on_post();
     <input type="file" name="csv-file-name" accept=".csv">
     <br>
     <input type="submit" class="button button-primary" value="Importar">
+    <input type="hidden" name="method" value="csv">
   </form>
 
 </div>
