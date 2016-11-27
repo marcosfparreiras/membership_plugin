@@ -2,10 +2,9 @@
 namespace Hotmembers3;
 class Wordpress_User {
 
-  public function __construct($user_email, $first_name, $last_name) {
+  public function __construct($user_email, $name) {
     $this->user_email = $user_email;
-    $this->first_name = $first_name;
-    $this->last_name = $last_name;
+    $this->name = $name;
   }
 
   public function add($role_slug) {
@@ -35,11 +34,10 @@ class Wordpress_User {
     $userdata = array(
       'user_login' => $this->user_email,
       'user_email' => $this->user_email,
-      'first_name' => $this->first_name,
-      'last_name' => $this->last_name,
+      'first_name' => $this->name,
       'user_pass' => wp_generate_password(8, false)
     );
     $user_id = wp_insert_user($userdata);
-    return new WP_USER($user_id);
+    return new \WP_USER($user_id);
   }
 }

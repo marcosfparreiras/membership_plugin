@@ -7,6 +7,7 @@ class CSV_Users_Importer {
   const STATUS_INDEX = 18;
   const NAME_INDEX = 19;
   const EMAIL_INDEX = 21;
+  const PRODUCT_ID = 33;
 
   function __construct($file_name) {
     $this->file_name = $file_name;
@@ -31,8 +32,11 @@ class CSV_Users_Importer {
     $formated_date = $this->date_formater($payment_date);
     $name = $line[self::NAME_INDEX];
     $email = $line[self::EMAIL_INDEX];
+    $prod_id = $line[self::PRODUCT_ID];
 
     echo $transaction . ' - ' . $formated_date . ' - ' . $name . ' - ' . $email . '<br>';
+    User::add(new User_Model($email, $transaction, $formated_date));
+    $wp_user = new Wordpress_User($email, $name);
     // CREATE_USER($email, $name, $formated_date, $transaction);
   }
 
