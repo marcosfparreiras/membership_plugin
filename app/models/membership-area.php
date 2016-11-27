@@ -125,8 +125,13 @@ class Membership_Area {
 
   public static function find_by_prod($prod_id) {
     $opts = array(
-      'prod' => 111
+      'prod' => $prod_id
     );
-    return self::where($opts);
+    $data = self::where($opts);
+    $membership_areas = [];
+    foreach($data as $membership_area) {
+      $membership_areas[] = self::find($membership_area->id);
+    }
+    return $membership_areas;
   }
 }

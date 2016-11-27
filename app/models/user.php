@@ -12,11 +12,13 @@ class User {
 
   public static function create_table() {
     $table_name = self::table_name();
+    $membership_area_table = Membership_Area::table_name();
     $sql = "CREATE TABLE $table_name (
       email varchar(70) NOT NULL,
+      role varchar(30) DEFAULT NULL,
       transaction varchar(40) NOT NULL,
       start_date date DEFAULT NULL,
-      PRIMARY KEY (email)
+      PRIMARY KEY (email, role)
     );";
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
@@ -28,6 +30,7 @@ class User {
     $data = array(
       'email' => $user->get_email(),
       'transaction' => $user->get_transaction(),
+      'role' => $user->get_role(),
       'start_date' => $user->get_start_date()
     );
     $format = array(
@@ -35,7 +38,7 @@ class User {
       '%s',
       '%s'
     );
-    $wpdb->insert( $table, $data, $format );
+    $wpdb->replace( $table, $data, $format );
   }
 
   public static function update($user) {
@@ -44,6 +47,7 @@ class User {
     $data = array(
       'email' => $user->get_email(),
       'transaction' => $user->get_transaction(),
+      'role' => $user->get_role(),
       'start_date' => $user->get_start_date()
     );
     $where = array(
@@ -69,6 +73,7 @@ class User {
       return new User_Model(
         $data->email,
         $data->transaction,
+        $data->role,
         $data->start_date
       );
     }

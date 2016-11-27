@@ -3,11 +3,13 @@ namespace Hotmembers3;
 class User_Model {
   var $email;
   var $transaction;
+  var $role;
   var $start_date;
 
-  function __construct($email, $transaction, $start_date) {
+  function __construct($email, $transaction, $role, $start_date) {
     $this->email = $email;
     $this->transaction = $transaction;
+    $this->role = $role;
     $this->start_date = $start_date;
   }
 
@@ -15,6 +17,7 @@ class User_Model {
     return new self(
       $obj->name,
       $obj->transaction,
+      $obj->role,
       $obj->start_date
     );
   }
@@ -27,6 +30,10 @@ class User_Model {
     return $this->transaction;
   }
 
+  public function get_role(){
+    return $this->role;
+  }
+
   public function get_start_date(){
     return $this->start_date;
   }
@@ -37,6 +44,10 @@ class User_Model {
 
   public function set_transaction($transaction) {
     $this->transaction = $transaction;
+  }
+
+  public function set_role($role) {
+    $this->role = $role;
   }
 
   public function set_start_date($start_date) {
