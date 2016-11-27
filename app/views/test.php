@@ -1,12 +1,12 @@
 <?php
 namespace Hotmembers3;
 
-$user = new User_Model(1, 'emailbla@mail.com', 'transaction0001', '2016-01-01');
+// $user = new User_Model('emailbla4@mail.com', 'transaction0001', '2016-01-01');
+$user = User::find('emailbla3@mail.com');
+$user->set_transaction('kkkk');
 var_dump($user);
-User::add($user);
+User::update($user);
 
-// $wp_user = new Wordpress_User('email002@mail.test', 'FN', 'LN');
-// $wp_user->add('hm3_role_1476846444');
 ?>
 
 <html>

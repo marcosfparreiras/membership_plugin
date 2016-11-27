@@ -13,11 +13,10 @@ class User {
   public static function create_table() {
     $table_name = self::table_name();
     $sql = "CREATE TABLE $table_name (
-      id INT NOT NULL AUTO_INCREMENT,
       email varchar(70) NOT NULL,
       transaction varchar(40) NOT NULL,
       start_date date DEFAULT NULL,
-      PRIMARY KEY  (id)
+      PRIMARY KEY (email)
     );";
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
@@ -48,7 +47,7 @@ class User {
       'start_date' => $user->get_start_date()
     );
     $where = array(
-      'id' => $user->get_id()
+      'email' => $user->get_email()
     );
     $format = array(
       '%s',
@@ -58,17 +57,16 @@ class User {
     $wpdb->update( $table, $data, $where, $format );
   }
 
-  public static function find($id) {
+  public static function find($email) {
     global $wpdb;
     $table_name = self::table_name();
-    $sql = "SELECT * FROM $table_name WHERE id = $id";
+    $sql = "SELECT * FROM $table_name WHERE email = '$email'";
     $data = $wpdb->get_row($sql);
     if($data == null) {
       return null;
     }
     else {
       return new User_Model(
-        $data->id,
         $data->email,
         $data->transaction,
         $data->start_date
@@ -80,10 +78,10 @@ class User {
     global $wpdb;
     $table = self::table_name();
     $where = array(
-      'id' => $user->id
+      'email' => $user->email
     );
     $format = array(
-      '%d',
+      '%s',
     );
     $wpdb->delete( $table, $where, $format );
   }

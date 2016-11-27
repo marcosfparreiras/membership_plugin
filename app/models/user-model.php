@@ -1,13 +1,11 @@
 <?php
 namespace Hotmembers3;
 class User_Model {
-  var $id;
   var $email;
   var $transaction;
   var $start_date;
 
-  function __construct($id, $email, $transaction, $start_date) {
-    $this->id = $id;
+  function __construct($email, $transaction, $start_date) {
     $this->email = $email;
     $this->transaction = $transaction;
     $this->start_date = $start_date;
@@ -15,15 +13,10 @@ class User_Model {
 
   public static function with_object($obj) {
     return new self(
-      $obj->id,
       $obj->name,
       $obj->transaction,
       $obj->start_date
     );
-  }
-
-  public function get_id(){
-    return $this->id;
   }
 
   public function get_email(){
@@ -40,10 +33,6 @@ class User_Model {
 
   public function set_email($email) {
     $this->email = $email;
-  }
-
-  public function set_name($name) {
-    $this->name = $name;
   }
 
   public function set_transaction($transaction) {
