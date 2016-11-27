@@ -26,6 +26,8 @@ define( 'HOTMEMBERS3_ASSETS_PATH', HOTMEMBERS3_DIR_PATH . 'app/assets' );
 # include models
 include( HOTMEMBERS3_MODELS_PATH . '/membership-area.php');
 include( HOTMEMBERS3_MODELS_PATH . '/restricted-content.php');
+include( HOTMEMBERS3_MODELS_PATH . '/user.php');
+
 # include controllers
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller.php');
 include( HOTMEMBERS3_CONTROLLERS_PATH . '/membership-areas-controller/membership-areas-controller-add.php');
@@ -44,6 +46,8 @@ include( HOTMEMBERS3_LIB_PATH . '/handlers/hotmembers-connect.php');
 include( HOTMEMBERS3_LIB_PATH . '/admin-notices/admin-notices-handler.php');
 include( HOTMEMBERS3_LIB_PATH . '/csv-users-importer.php');
 include( HOTMEMBERS3_LIB_PATH . '/wordpress-user.php');
+
+# include plugin class
 include_once HOTMEMBERS3_DIR_PATH . '/app/class-hotmembers3.php';
 new Hotmembers3();
 new HotmembersConnect();

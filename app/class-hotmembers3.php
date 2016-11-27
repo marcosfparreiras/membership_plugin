@@ -4,8 +4,8 @@ class Hotmembers3 {
   function __construct() {
     $this->add_menus();
     $this->add_assets();
-    // $this->add_header();
     $this->filter_content();
+    // $this->add_header();
     // $this->add_admin_notices();
   }
 
@@ -40,5 +40,6 @@ class Hotmembers3 {
   public static function create_tables() {
     Membership_Area::create_table();
     Restricted_Content::create_table();
+    User::create_table();
   }
 }

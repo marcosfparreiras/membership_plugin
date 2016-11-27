@@ -1,10 +1,12 @@
 <?php
 namespace Hotmembers3;
 
-$wp_user = new Wordpress_User('email002@mail.test', 'FN', 'LN');
-$wp_user->add('hm3_role_1476846444');
-// $date = \DateTime::createFromFormat('d/m/Y H:i', '25/10/2016 17:45');
-// echo $date->format('Y-m-d');
+$user = new User_Model(1, 'emailbla@mail.com', 'transaction0001', '2016-01-01');
+var_dump($user);
+User::add($user);
+
+// $wp_user = new Wordpress_User('email002@mail.test', 'FN', 'LN');
+// $wp_user->add('hm3_role_1476846444');
 ?>
 
 <html>
