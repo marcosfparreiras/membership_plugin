@@ -72,4 +72,16 @@ class Restricted_Content {
     $sql = "SELECT * from $table_name WHERE post_id = '$post_id';";
     return $wpdb->get_results($sql);
   }
+
+  public static function delete_by_fk($membership_area) {
+    global $wpdb;
+    $table = self::table_name();
+    $where = array(
+      'membership_area_id' => $membership_area->id
+    );
+    $format = array(
+      '%d',
+    );
+    $wpdb->delete( $table, $where, $format );
+  }
 }

@@ -5,6 +5,7 @@ class Membership_Area_Controller_Delete {
   public static function perform($post) {
     if(self::params_ok($post)) {
       $membership = Membership_Area::find($post['id']);
+      Restricted_Content::delete_by_fk($membership);
       Membership_Area::delete($membership);
       $slug = $membership->get_slug();
       Roles_Handler::remove_wp_role($slug);
