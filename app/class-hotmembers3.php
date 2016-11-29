@@ -38,6 +38,7 @@ class Hotmembers3 {
 
   // Create tables on database
   public static function create_tables() {
+    Site::create_table();
     Membership_Area::create_table();
     Restricted_Content::create_table();
     User::create_table();

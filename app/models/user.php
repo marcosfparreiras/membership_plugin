@@ -3,7 +3,7 @@ namespace Hotmembers3;
 require_once __DIR__ . '/user-model.php';
 
 class User {
-  const TABLE_NAME_SUFIX = 'hm3_membership_users';
+  const TABLE_NAME_SUFIX = 'hm3_users';
 
   public static function table_name() {
     global $wpdb;
