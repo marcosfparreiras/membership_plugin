@@ -39,7 +39,7 @@ class CSV_Users_Importer {
       $role_slug = $membership_area->get_slug();
 
       // echo $transaction . ' - ' . $formated_date . ' - ' . $name . ' - ' . $email . ' - ' . $prod_id . ' - ' . $role_slug . '<br>';
-      User::add(new User_Model($email, $transaction, $role_slug, $formated_date));
+      User::add(new User_Model($email, $transaction, $membership_area->get_id(), $formated_date));
       $wp_user = new Wordpress_User($email, $name);
       $wp_user->add($role_slug);
     }

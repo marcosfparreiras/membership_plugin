@@ -77,7 +77,7 @@ class Restricted_Content {
     global $wpdb;
     $table = self::table_name();
     $where = array(
-      'membership_area_id' => $membership_area->id
+      'membership_area_id' => $membership_area->get_id()
     );
     $format = array(
       '%d',

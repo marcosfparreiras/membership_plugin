@@ -15,10 +15,11 @@ class User {
     $membership_area_table = Membership_Area::table_name();
     $sql = "CREATE TABLE $table_name (
       email varchar(70) NOT NULL,
-      role varchar(30) DEFAULT NULL,
+      membership_area_id int DEFAULT NULL,
       transaction varchar(40) NOT NULL,
       start_date date DEFAULT NULL,
-      PRIMARY KEY (email, role)
+      FOREIGN KEY (membership_area_id) REFERENCES $membership_area_table (id),
+      PRIMARY KEY (email, membership_area_id)
     );";
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
@@ -30,12 +31,13 @@ class User {
     $data = array(
       'email' => $user->get_email(),
       'transaction' => $user->get_transaction(),
-      'role' => $user->get_role(),
+      'membership_area_id' => $user->get_membership_area_id(),
       'start_date' => $user->get_start_date()
     );
     $format = array(
       '%s',
       '%s',
+      '%d',
       '%s'
     );
     $wpdb->replace( $table, $data, $format );
@@ -47,7 +49,7 @@ class User {
     $data = array(
       'email' => $user->get_email(),
       'transaction' => $user->get_transaction(),
-      'role' => $user->get_role(),
+      'membership_area_id' => $user->get_membership_area_id(),
       'start_date' => $user->get_start_date()
     );
     $where = array(
@@ -56,6 +58,7 @@ class User {
     $format = array(
       '%s',
       '%s',
+      '%d',
       '%s'
     );
     $wpdb->update( $table, $data, $where, $format );
@@ -73,7 +76,7 @@ class User {
       return new User_Model(
         $data->email,
         $data->transaction,
-        $data->role,
+        $data->membership_area_id,
         $data->start_date
       );
     }
@@ -100,5 +103,17 @@ class User {
     }
     $sql = "SELECT * from $table_name WHERE $fields;";
     return $wpdb->get_results($sql);
+  }
+
+  public static function delete_by_fk($membership_area) {
+    global $wpdb;
+    $table = self::table_name();
+    $where = array(
+      'membership_area_id' => $membership_area->get_id()
+    );
+    $format = array(
+      '%d',
+    );
+    $wpdb->delete( $table, $where, $format );
   }
 }
