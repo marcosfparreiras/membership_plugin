@@ -27,6 +27,17 @@ class Membership_Area {
     dbDelta( $sql );
   }
 
+  public static function get_all_roles() {
+    global $wpdb;
+    $table = self::table_name();
+    $roles = $wpdb->get_results( "SELECT DISTINCT slug FROM $table" );
+    $formatted_roles = [];
+    foreach($roles as $role) {
+      $formatted_roles[] = $role->slug;
+    }
+    return $formatted_roles;
+  }
+
   public static function add($membership_area) {
     global $wpdb;
     $table = self::table_name();

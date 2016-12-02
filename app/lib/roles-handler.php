@@ -31,4 +31,23 @@ class Roles_Handler {
     return self::ROLE_PREFIX . time();
   }
 
+  public static function get_wp_roles() {
+    $roles = get_editable_roles();
+    $formatted_roles = [];
+    foreach($roles as $slug => $role) {
+      $formatted_roles[$slug] = $role['name'];
+    }
+    return $formatted_roles;
+  }
+
+  public static function get_hm_roles() {
+    global $wp_roles;
+    $roles = Membership_Area::get_all_roles();
+    $formatted_roles = [];
+    foreach($roles as $role) {
+      $wp_role_name = $wp_roles->roles[$role]['name'];;
+      $formatted_roles[$role] = $wp_role_name;
+    }
+    return $formatted_roles;
+  }
 }
